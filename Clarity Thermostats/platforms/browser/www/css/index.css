@@ -1,0 +1,31 @@
+body {
+    -webkit-touch-callout: none;    /* prevents any callouts to copy image, etc when tap to hold on phone */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevents copy and pasting by the user */
+    background-color: #fff;
+    height:100%; width:100%; /* makes body take full width of screen */
+    margin:0px;
+    padding:0px;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif; /* fonts used by app */
+}
+
+/* applies for every page in the app */
+.page {
+    width:100%;
+    height:100%;
+}
+
+/* applies for the opening page of the app */
+.opening-page {
+    position: absolute;
+    left: 50%; top: 50%; /* makes top left corner of .app div centered */
+    transform: translate(-50%, -50%); /* shifts to center properly */
+    width: 100%; /* makes the app take full width of the body */
+    background:url(../img/logo.png) no-repeat center top; /* adds the STEAM engine lgo */
+    text-align:center;
+    padding:215px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+}
+
+.second-page {
+    
+}

@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    var currentID = '#opening';
-    $('.page').style.display = 'none';
-    $(currentID).style.display = 'block';
+    var currentID = '#main';
+    $('.page').hide();
+    $('.navbar').hide();
+    $(currentID).show();
+    $('.navbar').show();
 });

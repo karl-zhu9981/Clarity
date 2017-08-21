@@ -15,6 +15,11 @@ body {
     height:100%;
 }
 
+.container {
+    width: 100%;
+    text-align: center;
+}
+
 /* applies for the opening page of the app */
 .opening-page {
     position: absolute;
@@ -26,6 +31,34 @@ body {
     padding:215px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
 }
 
-.second-page {
-    
+.navbar {
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+.nav-item {
+    color: #7c7d84;
+    font-size: 12px;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.main-page-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 4px
+}
+
+.current-temp {
+    font-size: 100px;
+    font-weight: lighter;
 }

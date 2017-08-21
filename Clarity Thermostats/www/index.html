@@ -4,9 +4,47 @@
         <meta charset="utf-8">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <title>Clarity</title>
     </head>
     <body>
+        <!-- bottom navbar shows everywhere except opening page -->
+        <div class="navbar fixed-bottom" id="#bottom-nav">
+            <table class="container" style="padding-top: 15px; padding-bottom: 15px">
+                <tr>
+                    <td>
+                        <a class="nav-item">
+                            <i class="fa fa-home fa-2x"></i>
+                            </br>
+                            Home
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-item">
+                            <i class="fa fa-users fa-2x"></i>
+                            </br>
+                            Comparisons
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-item">
+                            <i class="fa fa-bar-chart fa-2x"></i>
+                            </br>
+                            Statistics
+                        </a>
+                    </td>
+                    <td>
+                        <a class="nav-item">
+                            <i class="fa fa-cog fa-2x"></i>
+                            </br>
+                            Settings
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
         <div class="page" id="opening">
             <div class="opening-page">
                 <h4 style="font-size:18px; font-weight:normal;">Presents:</h4>
@@ -15,13 +53,17 @@
         </div>
 
         <div class="page" id="main">
-            <div>
-                <h2>Nombre 2</h2>
+            <div class="container">
+                <h1 class="current-temp">23</h1>
+                <a class="main-page-button">Save $380</a>
             </div>
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="../js/jquery-mobile.js"></script>
+        <!--<script type="text/javascript" src="../js/jquery-mobile.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>-->
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
     </body>
 </html>

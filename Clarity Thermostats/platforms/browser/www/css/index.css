@@ -43,6 +43,10 @@ body {
     font-size: 12px;
 }
 
+.nav-item-active {
+    color: #428bca;
+}
+
 .fixed-bottom {
     position: fixed;
     bottom: 0;

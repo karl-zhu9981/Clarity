@@ -14,28 +14,28 @@
             <table class="container" style="padding-top: 15px; padding-bottom: 15px">
                 <tr>
                     <td>
-                        <a class="nav-item">
+                        <a class="nav-item" id="home-tab">
                             <i class="fa fa-home fa-2x"></i>
                             </br>
                             Home
                         </a>
                     </td>
                     <td>
-                        <a class="nav-item">
+                        <a class="nav-item" id="comparisons-tab">
                             <i class="fa fa-users fa-2x"></i>
                             </br>
                             Comparisons
                         </a>
                     </td>
                     <td>
-                        <a class="nav-item">
+                        <a class="nav-item" id="statistics-tab">
                             <i class="fa fa-bar-chart fa-2x"></i>
                             </br>
                             Statistics
                         </a>
                     </td>
                     <td>
-                        <a class="nav-item">
+                        <a class="nav-item" id="settings-tab">
                             <i class="fa fa-cog fa-2x"></i>
                             </br>
                             Settings
@@ -45,6 +45,7 @@
             </table>
         </div>
 
+        <!-- loading/opening page -->
         <div class="page" id="opening">
             <div class="opening-page">
                 <h4 style="font-size:18px; font-weight:normal;">Presents:</h4>
@@ -52,19 +53,28 @@
             </div>
         </div>
 
+        <!-- this is the main page/home for the thermostat app-->
         <div class="page" id="main">
             <div class="container" style="padding-top: 50px">
-                <a>
+                <a id="temp-up-button">
                     <i class="fa fa-arrow-up fa-2x"></i>
                 </a>
-                <h1 style="font-size: 120px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">23</h1>
-                <a>
+                <!-- the temperature is added through js-->
+                <h1 style="font-size: 120px; font-weight: 100; margin-top: 0px; margin-bottom: 0px" id="main-temp"></h1>
+                <a id="temp-down-button">
                     <i class="fa fa-arrow-down fa-2x"></i>
                 </a>
 
                 <p style="font-size: 22px; font-weight: 100; margin-top: 50px">Heating Costs:</p>
-                <h3 style="font-size: 40px; font-weight: 100; margin-top: 0px; margin-bottom: 55px">$2500 / yr</h3>
+                <!-- the cost itself is added through js-->
+                <h3 style="font-size: 40px; font-weight: 100; margin-top: 0px; margin-bottom: 55px">$<span id="main-cost"></span> / yr</h3>
                 <a class="main-page-button">Save $380</a>
+            </div>
+        </div>
+
+        <div class="page" style="padding: 50px 20px" id="charts-cost">
+            <div class="container" style="background-color: #f0a203;">
+                Hello
             </div>
         </div>
 
@@ -74,5 +84,7 @@
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+        <script type="text/javascript" src="../js/charts-custom.js"></script>
     </body>
 </html>

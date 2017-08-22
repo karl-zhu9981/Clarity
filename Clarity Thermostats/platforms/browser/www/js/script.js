@@ -4,4 +4,27 @@ $(document).ready(function(){
     $('.navbar').hide();
     $(currentID).show();
     $('.navbar').show();
+
+    var temp = 23;
+    $('#main-temp').text(temp);
+
+    /* allows you to increase temperature of house */
+    $("#temp-up-button").click(function() {
+        temp ++;
+        $('#main-temp').text(temp);
+    });
+
+    /* allows you to decrease temperature */
+    $("#temp-down-button").click(function() {
+        temp --;
+        $('#main-temp').text(temp);
+    });
+
+    var cost = 2500;
+    $('#main-cost').text(cost);
+
+
+    /* this if for the tabs */
+    var activeTab = '#home-tab';
+    $(activeTab).addClass('nav-item-active');
 });

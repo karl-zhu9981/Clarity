@@ -7,7 +7,19 @@ $(document).ready(function(){
 
     var temp = 23;
     $('#main-temp').text(temp);
+    changeTemp(temp);
 
+
+    var cost = 2500;
+    $('#main-cost').text(cost);
+
+
+    /* this if for the tabs */
+    var activeTab = '#home-tab';
+    $(activeTab).addClass('nav-item-active');
+});
+
+function changeTemp (temp) {
     /* allows you to increase temperature of house */
     $("#temp-up-button").click(function() {
         temp ++;
@@ -19,12 +31,4 @@ $(document).ready(function(){
         temp --;
         $('#main-temp').text(temp);
     });
-
-    var cost = 2500;
-    $('#main-cost').text(cost);
-
-
-    /* this if for the tabs */
-    var activeTab = '#home-tab';
-    $(activeTab).addClass('nav-item-active');
-});
+};

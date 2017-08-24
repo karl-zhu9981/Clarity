@@ -20,6 +20,18 @@ body {
     text-align: center;
 }
 
+.graph-container {
+    position: relative;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.graph {
+
+}
+
 /* applies for the opening page of the app */
 .opening-page {
     position: absolute;

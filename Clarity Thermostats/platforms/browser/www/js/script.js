@@ -1,9 +1,10 @@
 $(document).ready(function(){
-    var currentID = '#main';
+    /* opens up the opening page */
     $('.page').hide();
     $('.navbar').hide();
-    $(currentID).show();
-    $('.navbar').show();
+    $('#opening').show();
+    /*changePage('#main');*/
+    changePageDelay(3000);
 
     var temp = 23;
     $('#main-temp').text(temp);
@@ -18,6 +19,20 @@ $(document).ready(function(){
     $(activeTab).addClass('nav-item-active');
     changeTab(activeTab);
 });
+
+/* changes the active page */
+function changePage (newID) {
+    $('.page').hide();
+    $(newID).show();
+    $('.navbar').show();
+}
+
+/* will delay changing the page for a set time */
+function changePageDelay (miliseconds) {
+    setTimeout(function() {
+        changePage('#main');
+    }, miliseconds);
+};
 
 /* this function works for changing the temperature */
 function changeTemp (temp, cost) {
@@ -48,6 +63,7 @@ function changeTab (activeTab) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#home-tab';
         $(activeTab).addClass('nav-item-active');
+        changePage('#main');
     });
 
     $('#comparisons-tab').click(function() {
@@ -60,6 +76,7 @@ function changeTab (activeTab) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#statistics-tab';
         $(activeTab).addClass('nav-item-active');
+        changePage('#charts-cost');
     });
 
     $('#settings-tab').click(function() {

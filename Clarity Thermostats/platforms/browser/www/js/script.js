@@ -14,15 +14,20 @@ $(document).ready(function(){
     var cost = 0;
     changeCost(temp, cost);
 
-    /* this if for the tabs */
-    var activeTab = '#home-tab';
-    $(activeTab).addClass('nav-item-active');
-    changeTab(activeTab);
-
     /* allows you to change the charts */
     var activeChart = '.to-cost';
     $(activeChart).addClass('nav-item-active');
     changeChart(activeChart);
+
+    /* allows you to change the competition pages */
+    var activeComp = '.to-fb';
+    $(activeComp).addClass('nav-item-active');
+    changeComp(activeComp);
+
+    /* this if for the tabs */
+    var activeTab = '#home-tab';
+    $(activeTab).addClass('nav-item-active');
+    changeTab(activeTab);
 });
 
 /* changes the active page */
@@ -63,7 +68,7 @@ function changeCost (temp, cost) {
 }
 
 /* this function applies for changing the tab on the navbar */
-function changeTab (activeTab) {
+function changeTab (activeTab, activeChart) {
     $('#home-tab').click(function() {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#home-tab';
@@ -75,6 +80,7 @@ function changeTab (activeTab) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#comparisons-tab';
         $(activeTab).addClass('nav-item-active');
+        changePage('#comp-fb');
     });
 
     $('#statistics-tab').click(function() {
@@ -88,6 +94,29 @@ function changeTab (activeTab) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#settings-tab';
         $(activeTab).addClass('nav-item-active');
+    });
+};
+
+function changeComp (activeComp) {
+    $('.to-fb').click(function() {
+        $(activeComp).removeClass('nav-item-active');
+        activeComp = '.to-fb';
+        $(activeComp).addClass('nav-item-active');
+        changePage('#comp-fb');
+    });
+
+    $('.to-reg').click(function() {
+        $(activeComp).removeClass('nav-item-active');
+        activeComp = '.to-reg';
+        $(activeComp).addClass('nav-item-active');
+        changePage('#comp-reg');
+    });
+
+    $('.to-you').click(function() {
+        $(activeComp).removeClass('nav-item-active');
+        activeComp = '.to-you';
+        $(activeComp).addClass('nav-item-active');
+        changePage('#comp-you');
     });
 };
 

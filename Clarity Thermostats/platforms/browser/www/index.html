@@ -11,7 +11,7 @@
     <body>
         <!-- bottom navbar shows everywhere except opening page -->
         <div class="navbar fixed-bottom" id="#bottom-nav">
-            <table class="container" style="padding-top: 15px; padding-bottom: 15px">
+            <table class="container" style="padding-top: 15px; padding-bottom: 15px; width:100%">
                 <tr>
                     <td>
                         <a class="nav-item" id="home-tab">
@@ -68,10 +68,98 @@
                 <p style="font-size: 22px; font-weight: 100; margin-top: 40px">Heating Costs:</p>
                 <!-- the cost itself is added through js-->
                 <h3 style="font-size: 40px; font-weight: 100; margin-top: 0px; margin-bottom: 55px">$<span id="main-cost"></span> / yr</h3>
-                <a class="main-page-button">Save $5000</a>
+                <a class="main-page-button">Save $380</a>
             </div>
         </div>
 
+        <!-- comparisons facebook page -->
+        <div class="page" id="comp-fb">
+            <!-- full, proper app will actually have to draw stuff from facebook, but this is just prototype -->
+            <div class="container" style="padding: 15px 40px">
+                <img src="/img/fb/facebook-logo.jpg" style="border-radius: 10px" width="100%"/>
+                <table style="width:100%; padding-top: 20px;">
+                    <tr class="fb-row">
+                        <td>1</td>
+                        <td><img src="/img/fb/julian.jpg" height="50px" width="50px"/></td>
+                        <td>You</td>
+                        <td>50</td>
+                    </tr>
+                    <tr class="fb-row">
+                        <td>2</td>
+                        <td><img src="/img/fb/andrew.jpg" height="50px" width="50px"/></td>
+                        <td>Andrew Huang</td>
+                        <td>50</td>
+                    </tr>
+                    <tr class="fb-row">
+                        <td>3</td>
+                        <td><img src="/img/fb/chloe.jpg" height="50px" width="50px"/></td>
+                        <td>Chloe Brydon</td>
+                        <td>94</td>
+                    </tr>
+                    <tr class="fb-row">
+                        <td>4</td>
+                        <td><img src="/img/fb/callum.jpg" height="50px" width="50px"/></td>
+                        <td>Callum Follett</td>
+                        <td>94</td>
+                    </tr>
+                    <tr class="fb-row">
+                        <td>5</td>
+                        <td><img src="/img/fb/sophie.jpg" height="50px" width="50px"/></td>
+                        <td>Sophie Chen</td>
+                        <td>94</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="container" style="padding-top: 15px">
+                <a class="fa fa-circle fa-2x nav-item to-fb" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-reg" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-you" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <!-- comparisons regional page -->
+        <div class="page" id="comp-reg">
+            <div class="container" style="padding: 15px 40px">
+                <p style="font-size: 23px; font-weight: 100; margin-top: 20px">Compare to Your Regional Average</p>
+                <img src="/img/regional.png" width="175px" height="175px" />
+
+                <div style="padding-top: 20px">
+                    <div id="regional-box"></div>
+                    <div style="padding: 0px 40px">
+                        <div style="float: left">
+                            <i class="fa fa-arrow-up fa-2x"></i>
+                            <p style="margin-bottom: 0px;">You</p>
+                        </div>
+                        <div style="float: right; color: #fff">
+                            <i class="fa fa-arrow-up fa-2x"></i>
+                            <p style="margin-bottom: 0px;">You.</p>
+                        </div>
+                        <div style="">
+                            <i class="fa fa-arrow-up fa-2x"></i>
+                            <p style="margin-bottom: 0px;">Avg.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="padding-top: 0px">
+                <a class="fa fa-circle fa-2x nav-item to-fb" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-reg" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-you" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <!-- comparisons yourself page -->
+        <div class="page" id="comp-you">
+            Yourself
+            <div class="container" style="padding-top: 30px">
+                <a class="fa fa-circle fa-2x nav-item to-fb" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-reg" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-you" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <!-- charts cost page -->
         <div class="page" id="charts-cost">
             <div class="graph-container">
                 <canvas class="graph" height="400" id="cost-chart"></canvas>
@@ -85,6 +173,7 @@
             </div>
         </div>
 
+        <!-- charts energy page -->
         <div class="page" id="charts-energy">
             <div class="graph-container">
                 <canvas class="graph" height="400" id="energy-chart"></canvas>
@@ -98,6 +187,7 @@
             </div>
         </div>
 
+        <!-- charts temp page -->
         <div class="page" id="charts-temp">
             <div class="graph-container">
                 <canvas class="graph" height="400" id="temp-chart"></canvas>
@@ -111,6 +201,8 @@
             </div>
         </div>
 
+
+        <!-- charts goals page -->
         <div class="page" id="charts-goals">
             <div class="graph-container">
                 <canvas class="graph" height="400" id="goals-chart"></canvas>

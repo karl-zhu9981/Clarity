@@ -16,20 +16,14 @@ body {
 }
 
 .container {
-    width: 100%;
     text-align: center;
 }
 
 .graph-container {
-    position: relative;
     padding-top: 40px;
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
-}
-
-.graph {
-
 }
 
 /* applies for the opening page of the app */
@@ -72,4 +66,15 @@ body {
     font-size: 30px;
     font-weight: 100;
     border-radius: 8px;
+}
+
+.fb-row {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+#regional-box {
+    min-height: 40px;
+    background-color: #f30a23; /* in case colour gradient not supported */
+    background: linear-gradient(to right, #00ff83, #aefc41, #f7623d, #ff4444);
 }

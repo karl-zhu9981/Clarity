@@ -5,8 +5,8 @@ var costChart = new Chart(ctx1, {
         labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
         datasets: [{
             data: [220, 200, 195, 170, 160, 140, 140, 160, 180, 190, 200, 212],
-            backgroundColor: '#428bca',
-            borderColor: '#428bca',
+            backgroundColor: '#7c7d84',
+            borderColor: '#7c7d84',
             borderWidth: 1
         }]
     },

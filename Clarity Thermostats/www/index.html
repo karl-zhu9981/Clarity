@@ -60,12 +60,12 @@
                     <i class="fa fa-arrow-up fa-2x"></i>
                 </a>
                 <!-- the temperature is added through js-->
-                <h1 style="font-size: 120px; font-weight: 100; margin-top: 0px; margin-bottom: 0px" id="main-temp"></h1>
+                <h1 style="font-size: 90px; font-weight: 100; margin-top: 0px; margin-bottom: 0px" id="main-temp"></h1>
                 <a id="temp-down-button">
                     <i class="fa fa-arrow-down fa-2x"></i>
                 </a>
 
-                <p style="font-size: 22px; font-weight: 100; margin-top: 50px">Heating Costs:</p>
+                <p style="font-size: 22px; font-weight: 100; margin-top: 40px">Heating Costs:</p>
                 <!-- the cost itself is added through js-->
                 <h3 style="font-size: 40px; font-weight: 100; margin-top: 0px; margin-bottom: 55px">$<span id="main-cost"></span> / yr</h3>
                 <a class="main-page-button">Save $5000</a>
@@ -74,9 +74,54 @@
 
         <div class="page" id="charts-cost">
             <div class="graph-container">
-                <canvas class="graph" height="400" id="myChart"></canvas>
+                <canvas class="graph" height="400" id="cost-chart"></canvas>
             </div>
-            <!---->
+
+            <div class="container" style="padding-top: 30px">
+                <a class="fa fa-circle fa-2x nav-item to-cost" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-energy" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-temp" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-goals" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <div class="page" id="charts-energy">
+            <div class="graph-container">
+                <canvas class="graph" height="400" id="energy-chart"></canvas>
+            </div>
+
+            <div class="container" style="padding-top: 30px">
+                <a class="fa fa-circle fa-2x nav-item to-cost" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-energy" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-temp" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-goals" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <div class="page" id="charts-temp">
+            <div class="graph-container">
+                <canvas class="graph" height="400" id="temp-chart"></canvas>
+            </div>
+
+            <div class="container" style="padding-top: 30px">
+                <a class="fa fa-circle fa-2x nav-item to-cost" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-energy" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-temp" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-goals" style="padding-left: 40px"></a>
+            </div>
+        </div>
+
+        <div class="page" id="charts-goals">
+            <div class="graph-container">
+                <canvas class="graph" height="400" id="goals-chart"></canvas>
+            </div>
+
+            <div class="container" style="padding-top: 30px">
+                <a class="fa fa-circle fa-2x nav-item to-cost" style="padding-left: 0px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-energy" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-temp" style="padding-left: 40px"></a>
+                <a class="fa fa-circle fa-2x nav-item to-goals" style="padding-left: 40px"></a>
+            </div>
         </div>
 
         <!--<script type="text/javascript" src="cordova.js"></script>-->

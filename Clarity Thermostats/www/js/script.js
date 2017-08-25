@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.navbar').hide();
     $('#opening').show();
     /*changePage('#main');*/
-    changePageDelay(3000);
+    changePageDelay(0);
 
     var temp = 23;
     $('#main-temp').text(temp);
@@ -18,6 +18,11 @@ $(document).ready(function(){
     var activeTab = '#home-tab';
     $(activeTab).addClass('nav-item-active');
     changeTab(activeTab);
+
+    /* allows you to change the charts */
+    var activeChart = '.to-cost';
+    $(activeChart).addClass('nav-item-active');
+    changeChart(activeChart);
 });
 
 /* changes the active page */
@@ -83,5 +88,35 @@ function changeTab (activeTab) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#settings-tab';
         $(activeTab).addClass('nav-item-active');
+    });
+};
+
+function changeChart (activeChart) {
+    $('.to-cost').click(function() {
+        $(activeChart).removeClass('nav-item-active');
+        activeChart = '.to-cost';
+        $(activeChart).addClass('nav-item-active');
+        changePage('#charts-cost');
+    });
+
+    $('.to-energy').click(function() {
+        $(activeChart).removeClass('nav-item-active');
+        activeChart = '.to-energy';
+        $(activeChart).addClass('nav-item-active');
+        changePage('#charts-energy');
+    });
+
+    $('.to-temp').click(function() {
+        $(activeChart).removeClass('nav-item-active');
+        activeChart = '.to-temp';
+        $(activeChart).addClass('nav-item-active');
+        changePage('#charts-temp');
+    });
+
+    $('.to-goals').click(function() {
+        $(activeChart).removeClass('nav-item-active');
+        activeChart = '.to-goals';
+        $(activeChart).addClass('nav-item-active');
+        changePage('#charts-goals');
     });
 };

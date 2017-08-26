@@ -4,7 +4,8 @@ var costChart = new Chart(ctx1, {
     data: {
         labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
         datasets: [{
-            data: [220, 200, 195, 170, 160, 140, 140, 160, 180, 190, 200, 212],
+            label: '$ / month',
+            data: [371, 371, 309, 210, 135, 84, 61, 67, 111, 185, 259, 333],
             backgroundColor: '#7c7d84',
             borderColor: '#7c7d84',
             borderWidth: 1
@@ -14,7 +15,7 @@ var costChart = new Chart(ctx1, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true,
                 }
             }]
         }
@@ -27,9 +28,10 @@ var energyChart = new Chart(ctx2, {
     data: {
         labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
         datasets: [{
-            data: [220, 200, 195, 170, 160, 140, 140, 160, 180, 190, 200, 212],
-            backgroundColor: '#000',
-            borderColor: '#000',
+            label: 'kWh / month',
+            data: [3706, 3706, 3088, 2100, 1359, 844, 618, 679, 1112, 1853, 2595, 3336],
+            backgroundColor: '#7c7d84',
+            borderColor: '#7c7d84',
             borderWidth: 1
         }]
     },
@@ -50,9 +52,10 @@ var tempChart = new Chart(ctx3, {
     data: {
         labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
         datasets: [{
-            data: [220, 200, 195, 170, 160, 140, 140, 160, 180, 190, 200, 212],
-            backgroundColor: '#ff0',
-            borderColor: '#ff0',
+            label: '˚C / month',
+            data: [20, 20, 21, 21, 22, 23, 22, 21, 20, 20, 21, 20],
+            backgroundColor: '#7c7d84',
+            borderColor: '#7c7d84',
             borderWidth: 1
         }]
     },
@@ -60,7 +63,9 @@ var tempChart = new Chart(ctx3, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    min: 10,
+                    max: 30,
+                    stepSize: 2
                 }
             }]
         }
@@ -74,8 +79,8 @@ var goalsChart = new Chart(ctx4, {
         labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
         datasets: [{
             data: [220, 200, 195, 170, 160, 140, 140, 160, 180, 190, 200, 212],
-            backgroundColor: '#a23',
-            borderColor: '#a32',
+            backgroundColor: '#7c7d84',
+            borderColor: '#7c7d84',
             borderWidth: 1
         }]
     },

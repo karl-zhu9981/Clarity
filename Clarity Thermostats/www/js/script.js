@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.navbar').hide();
     $('#opening').show();
     /*changePage('#main');*/
-    changePageDelay(0);
+    changePageDelay(4000);
 
     var temp = 23;
     $('#main-temp').text(temp);

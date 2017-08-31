@@ -55,64 +55,96 @@
 
         <!-- this is the main page/home for the thermostat app-->
         <div class="page" id="main">
-            <div class="container" style="padding-top: 50px">
+            <div class="container" style="padding-top: 30px">
                 <a id="temp-up-button">
-                    <i class="fa fa-arrow-up fa-2x"></i>
+                    <i class="fa fa-angle-up fa-3x" style="font-weight: bold"></i>
                 </a>
                 <!-- the temperature is added through js-->
                 <h1 style="font-size: 90px; font-weight: 100; margin-top: 0px; margin-bottom: 0px" id="main-temp"></h1>
                 <a id="temp-down-button">
-                    <i class="fa fa-arrow-down fa-2x"></i>
+                    <i class="fa fa-angle-down fa-3x" style="font-weight: bold"></i>
                 </a>
 
-                <p style="font-size: 22px; font-weight: 100; margin-top: 40px">Heating Costs:</p>
+                <p style="font-size: 22px; font-weight: 100; margin-top: 30px; margin-bottom: 10px">Heating Costs:</p>
                 <!-- the cost itself is added through js-->
                 <h3 style="font-size: 40px; font-weight: 100; margin-top: 0px; margin-bottom: 55px">$<span id="main-cost"></span> / yr</h3>
-                <a class="main-page-button">Save $380</a>
+                <a class="main-page-button" id="save-button">Save $<span id="save-down-2">380</span></a>
+            </div>
+        </div>
+
+        <!-- this is where you're redirected after clicking the save money button -->
+        <div class="page" id="save-money">
+            <div class="container" style="padding: 0px 30px">
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 0px; margin-top: 40px">
+                    If you decrease the temperature by just <span style="font-weight: bold">2˚</span>,
+                    you will save
+                </h3>
+                <h1 class="save-money-title">$<span id="save-month"></span></h1>
+                <h3 style="font-size: 14px; font-weight: 100; margin-bottom: 5px;">/ month</h3>
+                <h1 class="save-money-title">$<span id="save-year"></span></h1>
+                <h3 style="font-size: 14px; font-weight: 100; margin-bottom: 5px;">/ year</h3>
+                <!-- confirmation -->
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">Would you like to change it?</h3>
+                <h1 class="save-money-title" style="color: #000; margin-bottom: 20px">
+                    <span id="save-current-temp">0</span>˚
+                    <i class="fa fa-long-arrow-right"></i>
+                    <span id="save-new-temp">0</span>˚
+                </h1>
+                <a class="save-page-button" id="save-yes">Yes</a>
+                <a class="save-page-button" id="save-no">No</a>
             </div>
         </div>
 
         <!-- comparisons facebook page -->
         <div class="page" id="comp-fb">
             <!-- full, proper app will actually have to draw stuff from facebook, but this is just prototype -->
-            <div class="container" style="padding: 15px 40px">
-                <img src="img/fb/facebook-logo.jpg" style="border-radius: 10px" width="100%"/>
+            <div class="container">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 40px; margin-bottom: 0px">Facebook Leaderboard</h1>
+                <p style="font-size: 16px; font-weight: 100; margin-top: 25px; margin-bottom: 0px">kWh / week</p>
+            </div>
+            <div class="container" style="padding-left: 15px; padding-right: 40px;">
                 <table style="width:100%; padding-top: 20px;">
                     <tr class="fb-row">
+                        <td><span class="fa fa-trophy fa-2x" style="color: gold"></span> </td>
                         <td>1</td>
                         <td><img src="img/fb/julian.jpg" height="42px" width="42px"/></td>
                         <td>You</td>
-                        <td>50</td>
+                        <td>365</td>
                     </tr>
                     <tr class="fb-row">
+                        <td></td>
                         <td>2</td>
                         <td><img src="img/fb/andrew.jpg" height="42px" width="42px"/></td>
                         <td>Andrew Huang</td>
-                        <td>50</td>
+                        <td>387</td>
                     </tr>
                     <tr class="fb-row">
+                        <td></td>
                         <td>3</td>
                         <td><img src="img/fb/chloe.jpg" height="42px" width="42px"/></td>
                         <td>Chloe Brydon</td>
-                        <td>94</td>
+                        <td>400</td>
                     </tr>
                     <tr class="fb-row">
+                        <td></td>
                         <td>4</td>
                         <td><img src="img/fb/callum.jpg" height="42px" width="42px"/></td>
                         <td>Callum Follett</td>
-                        <td>94</td>
+                        <td>402</td>
                     </tr>
                     <tr class="fb-row">
+                        <td></td>
                         <td>5</td>
                         <td><img src="img/fb/sophie.jpg" height="42px" width="42px"/></td>
                         <td>Sophie Chen</td>
-                        <td>94</td>
+                        <td>435</td>
                     </tr>
                     <tr class="fb-row">
+                        <td></td>
                         <td>6</td>
                         <td><img src="img/fb/kevin.jpg" height="42px" width="42px"/></td>
                         <td>Kevin Zhang</td>
-                        <td>94</td>
+                        <td>470</td>
                     </tr>
                 </table>
             </div>
@@ -125,8 +157,8 @@
 
         <!-- comparisons regional page -->
         <div class="page" id="comp-reg">
-            <div class="container" style="padding: 15px 40px">
-                <p style="font-size: 23px; font-weight: 100; margin-top: 20px">Compare to Your Regional Average</p>
+            <div class="container" style="padding: 0px 40px">
+                <p style="font-size: 23px; font-weight: 100; margin-top: 40px">Compare to Your Regional Average</p>
                 <img src="img/regional.png" width="175px" height="175px" />
 
                 <div style="padding-top: 20px">
@@ -180,7 +212,7 @@
             </div>
         </div>
 
-        <!-- charts energy page -->
+        <!-- charts energy page-->
         <div class="page" id="charts-energy">
             <div class="graph-container">
                 <h1 style="font-size: 28px; font-weight: 100; margin-bottom: 5px;">Energy Usage</h1>
@@ -195,7 +227,7 @@
             </div>
         </div>
 
-        <!-- charts temp page -->
+        <!-- charts temp page-->
         <div class="page" id="charts-temp">
             <div class="graph-container">
                 <h1 style="font-size: 28px; font-weight: 100; margin-bottom: 5px;">Indoor Temperature</h1>
@@ -210,15 +242,27 @@
             </div>
         </div>
 
-
-        <!-- charts goals page -->
+        <!-- charts goals page-->
         <div class="page" id="charts-goals">
-            <div class="graph-container">
-                <h1 style="font-size: 28px; font-weight: 100; margin-bottom: 5px;">Title</h1>
-                <canvas class="graph" height="400" id="goals-chart"></canvas>
-            </div>
-
-            <div class="container" style="padding-top: 20px">
+            <div class="container" style="padding: 0px 30px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-bottom: 5px;">Monthly Goal</h1>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">
+                    This month, your goal is to reduce your heating/colling bill by
+                    <span style="font-weight: bold" id="goal-money">$18.00</span>.
+                </h3>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">
+                    In order to reach your goal, your house should be kept at an average of
+                    <span style="font-weight: bold" id="goal-temp">21˚</span>.
+                </h3>
+                <div style="margin-top: 20px" class="goals-box goals-success"></div>
+                <p style="font-size: 12px; font-weight: 100; margin-bottom: 5px;">
+                    <span id="goal-percent-completed">75%</span>
+                     Completed
+                </p>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">
+                    This month, you have already saved
+                    <span style="font-weight: bold" id="goal-saved">$13.50</span>.
+                </h3>
                 <a class="fa fa-circle-o nav-item to-cost" style="padding-left: 0px"></a>
                 <a class="fa fa-circle-o nav-item to-energy" style="padding-left: 40px"></a>
                 <a class="fa fa-circle-o nav-item to-temp" style="padding-left: 40px"></a>
@@ -226,12 +270,58 @@
             </div>
         </div>
 
+        <div class="page" id="settings">
+            <div class="container">
+                <h1 style="font-size: 28px; font-weight: 100; margin-bottom: 30px">Settings</h1>
+            </div>
+            <div style="padding: 0px 40px">
+                <h3 class="settings-option" id="settings-to-thermo">Thermostat Identification <i class="fa fa-angle-right settings-arrow"></i></h3>
+                <hr class="settings-option">
+                <h3 class="settings-option" id="settings-to-house">House Information <i class="fa fa-angle-right settings-arrow"></i></h3>
+                <hr class="settings-option">
+                <h3 class="settings-option" id="settings-to-fb">Facebook <i class="fa fa-angle-right settings-arrow"></i></h3>
+                <hr class="settings-option">
+                <h3 class="settings-option" id="settings-to-custom">Custom Schedule<i class="fa fa-angle-right settings-arrow"></i></h3>
+            </div>
+        </div>
+
+        <div class="page" id="settings-thermo">
+            <div class="settings-return">
+                <i class="fa fa-angle-left"></i>
+                Settings
+            </div>
+            <div class="container">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px;">Thermostat Identification</h1>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 100px">Change your six-digit thermostat <br>verification code (eg. #A0T4X2)</h3>
+                <h1 style="font-size: 48px; font-weight: 100; margin-top: 0px;" id="settings-thermo-code">
+                    # <span style="text-decoration: underline" id="code-0">0</span>
+                    <span style="text-decoration: underline" id="code-1">0</span>
+                    <span style="text-decoration: underline" id="code-2">0</span>
+                    <span style="text-decoration: underline" id="code-3">0</span>
+                    <span style="text-decoration: underline" id="code-4">0</span>
+                    <span style="text-decoration: underline" id="code-5">0</span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="page" id="settings-house">
+            House Information
+        </div>
+
+        <div class="page" id="settings-fb">
+            Facebook
+        </div>
+
+        <div class="page" id="settings-custom">
+            Custom Schedule
+        </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-mobile.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>-->
         <script type="text/javascript" src="js/charts.min.js"></script>
         <script type="text/javascript" src="js/charts-custom.js"></script>
+        <script type="text/javascript" src="js/algo.js"></script>
     </body>
 </html>

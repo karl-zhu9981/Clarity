@@ -40,7 +40,7 @@ body {
     overflow: hidden;
     width: 100%;
     text-align: center;
-    background-color: #fcfcfc;
+    background-color: #e6f1f7;
 }
 
 .nav-item {
@@ -49,7 +49,7 @@ body {
 }
 
 .nav-item-active {
-    color: #428bca;
+    color: #1b9af7;
 }
 
 .fixed-bottom {
@@ -75,5 +75,59 @@ body {
 #regional-box {
     min-height: 40px;
     background-color: #f30a23; /* in case colour gradient not supported */
-    background: linear-gradient(to right, #00ff83, #aefc41, #f7623d, #ff4444);
+}
+
+.goals-box {
+    position: relative;
+    min-height: 40px;
+}
+
+.goals-success {
+    background: #1b9af7;
+}
+
+.goals-success:after{
+    content: '';
+    position: absolute;
+    width: 25%; /*makes the grey part 25% of the bar*/
+    left: 75%; /*makes the grey part start 75% through the bar*/
+    height: 100%;
+    background: #cccccc;
+}
+
+.settings-option {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 15px 0px;
+}
+
+.settings-arrow {
+    float: right;
+    padding-right: 10px
+}
+
+.settings-return {
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: 100;
+    color: #1b9af7;
+}
+
+.save-money-title {
+    font-size: 42px;
+    font-weight: 100;
+    margin-bottom: 5px;
+    color: #5cb85c;
+    margin-top: 15px;
+}
+
+.save-page-button {
+        background-color: #1b9af7;
+        color: white;
+        padding: 12px 40px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 100;
+        border-radius: 8px;
 }

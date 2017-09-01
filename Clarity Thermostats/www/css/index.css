@@ -107,8 +107,8 @@ body {
 }
 
 .settings-return {
-    padding-top: 20px;
-    padding-left: 20px;
+    padding-top: 40px;
+    padding-left: 15px;
     font-size: 18px;
     font-weight: 100;
     color: #1b9af7;
@@ -137,4 +137,23 @@ body {
     font-weight: 100;
     margin-bottom: 5px;
     margin-top: 15px;
+}
+
+.compare-region-prices {
+    font-size: 36px;
+    font-weight: 100;
+}
+
+#code-0, #code-1, #code-2, #code-3, #code-4, #code-5 {
+    padding-right: 5px;
+}
+
+#change-code-button {
+    background-color: #1b9af7;
+    color: white;
+    padding: 16px 25px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 100;
+    border-radius: 8px;
 }

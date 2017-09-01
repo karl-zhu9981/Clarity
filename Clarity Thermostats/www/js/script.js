@@ -15,9 +15,12 @@ $(document).ready(function(){
     /* this lets you deal with the compare to yourself page */
     var costAt23 = costPerYear(23);
     $('#compare-self-avg').text(costAt23);
-    changeCost(temp, cost, saveMoneyVal, costAt23);
+    /* this is for the regional comparison prices */
+    var regAvg = 2100;
+    $('#cost-reg-avg').text(regAvg);
 
-    changeTemp(temp, cost, saveMoneyVal, costAt23);
+    changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+    changeTemp(temp, cost, saveMoneyVal, costAt23, regAvg);
 
     /* allows you to change the charts */
     var activeChart = '.to-cost';
@@ -35,6 +38,7 @@ $(document).ready(function(){
     /* this affects the thermostat verification code */
     var thermoCode = 'A1G8X3'
     showCode(thermoCode);
+    changeCode(thermoCode);
 });
 
 /* changes the active page */
@@ -52,12 +56,12 @@ function changePageDelay (miliseconds) {
 };
 
 /* this function works for changing the temperature */
-function changeTemp (temp, cost, saveMoneyVal, costAt23) {
+function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
     /* allows you to decrease temperature */
     $('#temp-down-button').click(function() {
         temp --;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
     });
 
@@ -65,7 +69,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23) {
     $('#temp-up-button').click(function() {
         temp ++;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
     });
 
@@ -74,7 +78,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23) {
         changePage('#main');
         temp -= 2;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
     });
 
@@ -90,7 +94,7 @@ function setTemp_savePage (temp) {
 }
 
 /* this functions updates the cost to heat hosue per year */
-function changeCost (temp, cost, saveMoneyVal, costAt23) {
+function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg) {
     cost = costPerYear(temp);
     $('#main-cost').text(cost);
     /* this deals with money saved from dropping temp 2 degrees */
@@ -108,11 +112,20 @@ function changeCost (temp, cost, saveMoneyVal, costAt23) {
     } else if (avgCurrentDiff == 0) {
         $('#compare-self-diff').text('$' + avgCurrentDiff);
         $('#compare-self-diff').css('color', '#000');
-        $('#compare-self-current').css('color', '#000`');
+        $('#compare-self-current').css('color', '#000');
     } else {
         $('#compare-self-diff').text('-$' + (-1*avgCurrentDiff));
         $('#compare-self-diff').css('color', '#f30a23');
         $('#compare-self-current').css('color', '#f30a23');
+    }
+    /* this is for the current cost on regional comparisons page */
+    $('#cost-reg-you').text('$' + cost);
+    if (cost < regAvg) {
+        $('#cost-reg-you').css('color', '#5cb85c');
+    } else if (cost == regAvg) {
+        $('#cost-reg-you').css('color', '#000');
+    } else {
+        $('#cost-reg-you').css('color', '#f30a23');
     }
 }
 
@@ -261,7 +274,7 @@ function showCode (thermoCode) {
 
 /* allows you to change the thermostat code connected */
 function changeCode (thermoCode) {
-    $('#settings-thermo-code').click(function() {
-
+    $('#change-code-button').click(function() {
+        changePage('#settings-change-code');
     });
 }

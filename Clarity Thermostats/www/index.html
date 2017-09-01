@@ -160,6 +160,7 @@
             <div class="container" style="padding: 0px 40px">
                 <p style="font-size: 23px; font-weight: 100; margin-top: 40px">Compare to Your Regional Average</p>
                 <img src="img/regional.png" width="175px" height="175px" />
+                <p style="font-size: 18px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">Kitchener-Waterloo</p>
 
                 <div style="padding-top: 20px">
                     <div id="regional-box"></div>
@@ -189,8 +190,17 @@
 
         <!-- comparisons yourself page -->
         <div class="page" id="comp-you">
-            Yourself
-            <div class="container" style="padding-top: 30px">
+            <div class="container" style="padding-top: 40px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 40px; margin-top: 0px">Compare to Yourself</h1>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">Average Annual Cost</h3>
+                <h1 class="compare-self-prices">$<span id="compare-self-avg">2500</span><span style="font-size: 14px"> / year</span></h1>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">Current Annual Cost</h3>
+                <h1 class="compare-self-prices"><span id="compare-self-current">$2500</span><span style="font-size: 14px"> / year</span></h1>
+                <h3 style="font-size: 20px; font-weight: 100; margin-bottom: 5px;">Current <i class="fa fa-plus"></i><span style="font-weight: 900"> / </span><i class="fa fa-minus"></i></h3>
+                <h1 class="compare-self-prices"><span id="compare-self-diff">$0</span><span style="font-size: 14px"> / year</span></h1>
+            </div>
+
+            <div class="container" style="padding-top: 15px">
                 <a class="fa fa-circle-o nav-item to-fb" style="padding-left: 0px"></a>
                 <a class="fa fa-circle-o nav-item to-reg" style="padding-left: 40px"></a>
                 <a class="fa fa-circle-o nav-item to-you" style="padding-left: 40px"></a>
@@ -309,7 +319,8 @@
         </div>
 
         <div class="page" id="settings-fb">
-            Facebook
+            Facebook <br>
+            <input type="text" name="fb" value="Anonymous">
         </div>
 
         <div class="page" id="settings-custom">

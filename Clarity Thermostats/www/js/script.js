@@ -9,26 +9,28 @@ $(document).ready(function(){
     var temp = 23;
     $('#main-temp').text(temp);
     setTemp_savePage(temp);
-    changeTemp(temp, cost, saveMoneyVal);
 
     var cost = 0;
     var saveMoneyVal = 0; /* saveMoneyVal applies for when you decrease temp by 2 degrees */
-    changeCost(temp, cost);
+    /* this lets you deal with the compare to yourself page */
+    var costAt23 = costPerYear(23);
+    $('#compare-self-avg').text(costAt23);
+    changeCost(temp, cost, saveMoneyVal, costAt23);
+
+    changeTemp(temp, cost, saveMoneyVal, costAt23);
 
     /* allows you to change the charts */
     var activeChart = '.to-cost';
     $(activeChart).addClass('nav-item-active');
-    changeChart(activeChart);
 
     /* allows you to change the competition pages */
     var activeComp = '.to-fb';
     $(activeComp).addClass('nav-item-active');
-    changeComp(activeComp);
 
     /* this if for the tabs */
     var activeTab = '#home-tab';
     $(activeTab).addClass('nav-item-active');
-    changeTab(activeTab);
+    changeTab(activeTab, activeComp, activeChart);
 
     /* this affects the thermostat verification code */
     var thermoCode = 'A1G8X3'
@@ -50,12 +52,12 @@ function changePageDelay (miliseconds) {
 };
 
 /* this function works for changing the temperature */
-function changeTemp (temp, cost, saveMoneyVal) {
+function changeTemp (temp, cost, saveMoneyVal, costAt23) {
     /* allows you to decrease temperature */
     $('#temp-down-button').click(function() {
         temp --;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal);
+        changeCost(temp, cost, saveMoneyVal, costAt23);
         setTemp_savePage(temp);
     });
 
@@ -63,7 +65,7 @@ function changeTemp (temp, cost, saveMoneyVal) {
     $('#temp-up-button').click(function() {
         temp ++;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal);
+        changeCost(temp, cost, saveMoneyVal, costAt23);
         setTemp_savePage(temp);
     });
 
@@ -72,7 +74,7 @@ function changeTemp (temp, cost, saveMoneyVal) {
         changePage('#main');
         temp -= 2;
         $('#main-temp').text(temp);
-        changeCost(temp, cost, saveMoneyVal);
+        changeCost(temp, cost, saveMoneyVal, costAt23);
         setTemp_savePage(temp);
     });
 
@@ -88,7 +90,7 @@ function setTemp_savePage (temp) {
 }
 
 /* this functions updates the cost to heat hosue per year */
-function changeCost (temp, cost, saveMoneyVal) {
+function changeCost (temp, cost, saveMoneyVal, costAt23) {
     cost = costPerYear(temp);
     $('#main-cost').text(cost);
     /* this deals with money saved from dropping temp 2 degrees */
@@ -96,10 +98,26 @@ function changeCost (temp, cost, saveMoneyVal) {
     $('#save-down-2').text(saveMoneyVal);
     $('#save-year').text(saveMoneyVal);
     $('#save-month').text((saveMoneyVal/12).toFixed(2));
+    /* this deals with the compare to yourself page */
+    $('#compare-self-current').text('$' + cost);
+    var avgCurrentDiff = costAt23 - cost;
+    if (avgCurrentDiff > 0) {
+        $('#compare-self-diff').text('+$' + avgCurrentDiff);
+        $('#compare-self-diff').css('color', '#5cb85c');
+        $('#compare-self-current').css('color', '#5cb85c');
+    } else if (avgCurrentDiff == 0) {
+        $('#compare-self-diff').text('$' + avgCurrentDiff);
+        $('#compare-self-diff').css('color', '#000');
+        $('#compare-self-current').css('color', '#000`');
+    } else {
+        $('#compare-self-diff').text('-$' + (-1*avgCurrentDiff));
+        $('#compare-self-diff').css('color', '#f30a23');
+        $('#compare-self-current').css('color', '#f30a23');
+    }
 }
 
 /* this function applies for changing the tab on the navbar */
-function changeTab (activeTab, activeChart) {
+function changeTab (activeTab, activeComp, activeChart) {
     $('#home-tab').click(function() {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#home-tab';
@@ -116,14 +134,28 @@ function changeTab (activeTab, activeChart) {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#comparisons-tab';
         $(activeTab).addClass('nav-item-active');
-        changePage('#comp-fb');
+        if (activeComp == '.to-fb') {
+            changePage('#comp-fb');
+        } else if (activeComp == '.to-reg') {
+            changePage('#comp-reg');
+        } else {
+            changePage('#comp-you');
+        }
     });
 
     $('#statistics-tab').click(function() {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#statistics-tab';
         $(activeTab).addClass('nav-item-active');
-        changePage('#charts-cost');
+        if (activeChart == '.to-cost') {
+            changePage('#charts-cost');
+        } else if (activeChart == '.to-energy') {
+            changePage('#charts-energy');
+        } else if (activeChart == '.to-temp') {
+            changePage('#charts-temp');
+        } else {
+            changePage('#charts-goals');
+        }
     });
 
     $('#settings-tab').click(function() {
@@ -160,9 +192,8 @@ function changeTab (activeTab, activeChart) {
     $('.settings-return').click(function() {
         changePage('#settings');
     });
-};
 
-function changeComp (activeComp) {
+    /* this is for the circle nav in the competitions page */
     $('.to-fb').click(function() {
         $(activeComp).removeClass('nav-item-active');
         activeComp = '.to-fb';
@@ -183,9 +214,8 @@ function changeComp (activeComp) {
         $(activeComp).addClass('nav-item-active');
         changePage('#comp-you');
     });
-};
 
-function changeChart (activeChart) {
+    /* this is for the circle nav in the charts page */
     $('.to-cost').click(function() {
         $(activeChart).removeClass('nav-item-active');
         activeChart = '.to-cost';
@@ -213,6 +243,10 @@ function changeChart (activeChart) {
         $(activeChart).addClass('nav-item-active');
         changePage('#charts-goals');
     });
+};
+
+function changeChart (activeChart) {
+
 };
 
 /* this displays the code in the settings page */

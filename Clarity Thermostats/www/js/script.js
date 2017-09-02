@@ -36,7 +36,7 @@ $(document).ready(function(){
     changeTab(activeTab, activeComp, activeChart);
 
     /* this affects the thermostat verification code */
-    var thermoCode = 'A1G8X3'
+    var thermoCode = '#A1G8X3';
     showCode(thermoCode);
     changeCode(thermoCode);
 });
@@ -171,13 +171,6 @@ function changeTab (activeTab, activeComp, activeChart) {
         }
     });
 
-    $('#settings-tab').click(function() {
-        $(activeTab).removeClass('nav-item-active');
-        activeTab = '#settings-tab';
-        $(activeTab).addClass('nav-item-active');
-        changePage('#settings');
-    });
-
     /* this deals with the different settings pages */
     $('#settings-tab').click(function() {
         $(activeTab).removeClass('nav-item-active');
@@ -188,6 +181,8 @@ function changeTab (activeTab, activeComp, activeChart) {
 
     $('#settings-to-thermo').click(function() {
         changePage('#settings-thermo');
+        $('.change-code-info').hide();
+        $('#change-code-general').show();
     });
 
     $('#settings-to-house').click(function() {
@@ -204,6 +199,19 @@ function changeTab (activeTab, activeComp, activeChart) {
 
     $('.settings-return').click(function() {
         changePage('#settings');
+    });
+
+    /* deals with the toggle on fb settings page */
+    $('#settings-fb-share').click(function() {
+        if ($('#settings-fb-toggle').hasClass('fa-toggle-on')) {
+            $('#settings-fb-toggle').removeClass('fa-toggle-on');
+            $('#settings-fb-toggle').addClass('fa-toggle-off');
+            $('#settings-fb-toggle').css('color', '#000');
+        } else {
+            $('#settings-fb-toggle').removeClass('fa-toggle-off');
+            $('#settings-fb-toggle').addClass('fa-toggle-on');
+            $('#settings-fb-toggle').css('color', '#1b9af7');
+        }
     });
 
     /* this is for the circle nav in the competitions page */
@@ -258,23 +266,32 @@ function changeTab (activeTab, activeComp, activeChart) {
     });
 };
 
-function changeChart (activeChart) {
-
-};
-
 /* this displays the code in the settings page */
 function showCode (thermoCode) {
-    $('#code-0').text(thermoCode[0]);
-    $('#code-1').text(thermoCode[1]);
-    $('#code-2').text(thermoCode[2]);
-    $('#code-3').text(thermoCode[3]);
-    $('#code-4').text(thermoCode[4]);
-    $('#code-5').text(thermoCode[5]);
+    /* this sets the placehodler in input form */
+    document.getElementById("new-code").placeholder = thermoCode;
 }
 
 /* allows you to change the thermostat code connected */
 function changeCode (thermoCode) {
-    $('#change-code-button').click(function() {
-        changePage('#settings-change-code');
+    /* this deals with the thermostat code form */
+    $("#code-form").submit(function(e) {
+        e.preventDefault();
+        $('.change-code-info').hide();
+        var newCode = document.getElementById('new-code').value; /* this gets whatever is in the input box */
+        newCode = newCode.toUpperCase();
+        if (newCode[0] == "#" && newCode.length == 7) {
+            $('#change-code-success').show();
+            thermoCode = newCode;
+            showCode(thermoCode);
+            document.getElementById('new-code').value = "";
+        } else {
+            if (newCode[0] != "#") {
+                $('#change-code-hashtag').show();
+            }
+            if (newCode.length != 7) {
+                $('#change-code-length').show();
+            }
+        }
     });
 }

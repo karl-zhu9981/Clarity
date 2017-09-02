@@ -301,18 +301,17 @@
                 <i class="fa fa-angle-left"></i>
                 Settings
             </div>
-            <div class="container">
-                <h1 style="font-size: 28px; font-weight: 100; margin-top: 15px;">Thermostat Code</h1>
-                <h3 style="font-size: 16px; font-weight: 100; padding: 0px 40px;">Each thermostat comes equipped with a unique verification code (eg. #A0T4X2), allowing your phone to connect to the thermostat.</h3>
-                <h1 style="font-size: 48px; font-weight: 100; margin-top: 30px; margin-bottom: 35px;" id="settings-thermo-code">
-                    # <span id="code-0">0</span><span id="code-1">0</span><span id="code-2">0</span><span id="code-3">0</span><span id="code-4">0</span><span id="code-5">0</span>
-                </h1>
-                <a id="change-code-button">Change Code</a>
+            <div class="container" style="padding: 0px 40px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px;">Thermostat Code</h1>
+                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A0T4X2), allowing your phone to connect to the thermostat.</h3>
+                <form id="code-form" style="margin-top: 25px">
+                    <input class="code-input" id="new-code" type="text" placeholder="">
+                    <h3 class="change-code-info" style="color: #5cb85c" id="change-code-success">Code was successfully changed!</h3>
+                    <h3 class="change-code-info" style="color: #f30a23" id="change-code-hashtag">Code error! Please make sure you start the code with a hashtag.</h3>
+                    <h3 class="change-code-info" style="color: #f30a23" id="change-code-length">Code error! Please make sure the hashtag is followed by 6 digits.</h3>
+                    <h3 class="change-code-info" id="change-code-general">Please ensure that the code begins with a # and is followed by six digits.</h3>
+                </form>
             </div>
-        </div>
-
-        <div class="page" id="settings-change-code">
-            Change Code
         </div>
 
         <div class="page" id="settings-house">
@@ -320,8 +319,31 @@
         </div>
 
         <div class="page" id="settings-fb">
-            Facebook <br>
-            <input type="text" name="fb" value="Anonymous">
+            <div class="settings-return">
+                <i class="fa fa-angle-left"></i>
+                Settings
+            </div>
+            <div class="container" style="padding: 0px 40px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px; margin-bottom: 0px">Facebook</h1>
+                <table style="width: 100%; text-align: left; padding: 0px 20px;">
+                    <tr>
+                        <td style="width:30%; padding-right: 5px">
+                            <img src="img/fb/julian.jpg" height="60px" width="60px"/>
+                        </td>
+                        <td style="width:70%; padding-left: 5px">
+                            <p style="font-size: 16px; font-weight: 100; margin-bottom: 10px; color: #7c7d84">First Name</p>
+                            <p style="font-size: 16px; font-weight: 100; margin-top: 0px; color: #7c7d84">Last Name</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="padding: 0px 40px">
+                <h3 class="settings-option" id="settings-fb-share">Share Energy Data <i class="fa fa-toggle-on" style="float: right; padding-right: 10px; color: #1b9af7; font-size: 24px;" id="settings-fb-toggle"></i></h3>
+                <p style="font-size: 12px; font-weight: 100; margin-top: 5px;">Clarity would like to share data about your energy consumption for heating and cooling with your Facebook friends. When turned off, only you can view data about your energy consumption.</p>
+                <hr class="settings-option">
+                <h3 class="settings-option" style="color: #f30a23; margin-bottom: 0px" id="settings-fb-signout">Sign Out</h3>
+                <p style="font-size: 12px; font-weight: 100; margin-top: 5px;">* This function has been disabled for the purposes of the prototype. (This message usually won't be here).</p>
+            </div>
         </div>
 
         <div class="page" id="settings-custom">

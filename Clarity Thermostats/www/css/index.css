@@ -144,8 +144,8 @@ body {
     font-weight: 100;
 }
 
-#code-0, #code-1, #code-2, #code-3, #code-4, #code-5 {
-    padding-right: 5px;
+#code-0, #code-1, #code-2, #code-3, #code-4, #code-5, #code-6 {
+    padding-right: 2px;
 }
 
 #change-code-button {
@@ -156,4 +156,26 @@ body {
     font-size: 22px;
     font-weight: 100;
     border-radius: 8px;
+}
+
+.code-input {
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box; /* avoids spill over through some css magic ;) */
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    background-image: url('searchicon.png');
+    font-size: 24px;
+    font-weight: 200;
+}
+
+.code-input:focus {
+    border: 3px solid #555;
+    outline: none;
+}
+
+.change-code-info {
+    font-size: 16px;
+    font-weight: 100;
+    margin-top: 8px;
 }

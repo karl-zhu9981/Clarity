@@ -54,7 +54,15 @@ body {
 
 .fixed-bottom {
     position: fixed;
-    bottom: 0;
+    bottom: 0px;
+}
+
+.circle-nav {
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 90px;
 }
 
 .main-page-button {

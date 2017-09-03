@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     var temp = 23;
     $('#main-temp').text(temp);
+    $('#main-temp-confirm').text(temp);
     setTemp_savePage(temp);
 
     var cost = 0;
@@ -57,20 +58,74 @@ function changePageDelay (miliseconds) {
 
 /* this function works for changing the temperature */
 function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
+    var oldTemp; var confirmCostDiff; /* these are for the confirmation page when you increase temp */
+
     /* allows you to decrease temperature */
     $('#temp-down-button').click(function() {
         temp --;
         $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
         changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
     });
 
     /* allows you to increase temperature of house */
     $('#temp-up-button').click(function() {
+        oldTemp = temp; /* for the increasing temp confirmation page */
         temp ++;
+        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
         $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
         changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
+        /* deals with the the confirmation page */
+        changePage('#main-confirm');
+        $('#confirm-old-temp').text(oldTemp);
+        $('#confirm-new-temp').text(temp);
+        $('#confirm-cost-year').text(confirmCostDiff);
+    });
+
+    /* deals with confirm page */
+    $('#temp-down-button-confirm').click(function() {
+        temp --;
+        /* this checks to see if you brought temp back to original one. If so, go back to main page */
+        if (temp <= oldTemp) {
+            changePage('#main');
+        };
+        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
+        $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        setTemp_savePage(temp);
+        /* deals with the the confirmation page */
+        $('#confirm-new-temp').text(temp);
+        $('#confirm-cost-year').text(confirmCostDiff);
+    });
+
+    /* allows you to increase temperature of house on confirm page */
+    $('#temp-up-button-confirm').click(function() {
+        temp ++;
+        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
+        $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        setTemp_savePage(temp);
+        /* deals with the the confirmation page */
+        $('#confirm-new-temp').text(temp);
+        $('#confirm-cost-year').text(confirmCostDiff);
+    });
+
+    $('#confirm-temp-yes').click(function() {
+        changePage('#main');
+    });
+
+    $('#confirm-temp-no').click(function() {
+        temp = oldTemp;
+        $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        setTemp_savePage(temp);
+        changePage('#main');
     });
 
     /* this deals with the save money button page */
@@ -78,6 +133,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
         changePage('#main');
         temp -= 2;
         $('#main-temp').text(temp);
+        $('#main-temp-confirm').text(temp);
         changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
         setTemp_savePage(temp);
     });
@@ -195,6 +251,10 @@ function changeTab (activeTab, activeComp, activeChart) {
 
     $('#settings-to-custom').click(function() {
         changePage('#settings-custom');
+    });
+
+    $('#settings-to-support').click(function() {
+        changePage('#settings-support');
     });
 
     $('.settings-return').click(function() {

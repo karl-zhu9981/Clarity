@@ -25,17 +25,6 @@ body {
     text-align: center;
 }
 
-/* applies for the opening page of the app */
-.opening-page {
-    position: absolute;
-    left: 50%; top: 50%; /* makes top left corner of .app div centered */
-    transform: translate(-50%, -50%); /* shifts to center properly */
-    width: 100%; /* makes the app take full width of the body */
-    background:url(../img/logo.png) no-repeat center top; /* adds the STEAM engine lgo */
-    text-align:center;
-    padding:215px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-}
-
 .navbar {
     overflow: hidden;
     width: 100%;

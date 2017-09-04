@@ -336,12 +336,12 @@ function changeTab (activeTab, activeComp, activeChart) {
         $('#change-code-general').show();
     });
 
-    $('#settings-to-house').click(function() {
-        changePage('#settings-house');
-    });
-
     $('#settings-to-fb').click(function() {
         changePage('#settings-fb');
+    });
+
+    $('#settings-to-location').click(function() {
+        changePage('#settings-location');
     });
 
     $('#settings-to-custom').click(function() {
@@ -366,6 +366,19 @@ function changeTab (activeTab, activeComp, activeChart) {
             $('#settings-fb-toggle').removeClass('fa-toggle-off');
             $('#settings-fb-toggle').addClass('fa-toggle-on');
             $('#settings-fb-toggle').css('color', '#1b9af7');
+        }
+    });
+
+    /* deals with the toggle on lcoations settings page */
+    $('#settings-location-access').click(function() {
+        if ($('#settings-location-toggle').hasClass('fa-toggle-on')) {
+            $('#settings-location-toggle').removeClass('fa-toggle-on');
+            $('#settings-location-toggle').addClass('fa-toggle-off');
+            $('#settings-location-toggle').css('color', '#000');
+        } else {
+            $('#settings-location-toggle').removeClass('fa-toggle-off');
+            $('#settings-location-toggle').addClass('fa-toggle-on');
+            $('#settings-location-toggle').css('color', '#1b9af7');
         }
     });
 
@@ -477,6 +490,7 @@ function changeCode (thermoCode) {
     $('#opening-new-code').keypress(function(e){
         if(e.which == 13){
             $(this).blur();
+            $("#opening-code-form").submit();
         }
     });
 
@@ -484,6 +498,7 @@ function changeCode (thermoCode) {
     $('#new-code').keypress(function(e){
         if(e.which == 13){
             $(this).blur();
+            $("#code-form").submit();
         }
     });
 }

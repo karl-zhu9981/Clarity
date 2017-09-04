@@ -41,6 +41,28 @@ $(document).ready(function(){
         $('#new-cost-button').show();
     });
 
+    /* makes it so that typing enter/go has you leave the box */
+    $('#house-cost-1').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#house-cost-2').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#house-cost-3').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#house-cost-4').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+
     $('#opening-costs-entered').click(function() {
         /* this is for once they press the move one button */
         var values = [];
@@ -423,6 +445,13 @@ function changeCode (thermoCode) {
             if (newCode.length != 7) {
                 $('#change-code-length').show();
             }
+        }
+    });
+
+    /* makes it so that if you click enter, you leave the form */
+    $('#code-form').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
         }
     });
 }

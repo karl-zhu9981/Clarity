@@ -14,21 +14,24 @@
             <div class="container" style="padding: 20px 30px">
                 <h1 style="font-size: 24px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">Prototype: Thermostat</h1>
                 <h3 style="font-size: 14px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">* This page will only exist in the app prototype, not the finished product.</h3>
-                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
-                    Clarity also submitted a prototype for the physical thermostat. Some information about it:
-                    <br><br>
-                    1. The three buttons are used to change the temperature. The top and bottoms button raise and lower the temperature respectively. The middle button is required in order to 'set' any temperature change.
-                    <br><br>
-                    2. The thermostat comes with LED lights on the bottom that indicate your expenditure on heating/cooling. A green light means better than average: anything below $1900/year. A yellow light means average: $1900-$2500. A red light means you're spending more than average: above $2500.
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px;">
+                    Clarity also submitted a prototype for the physical thermostat. Here is some information about it:
                 </h3>
-                <h3 style="font-size: 14px; font-weight: 100; margin-top: 12px;">* Tap anywhere to continue.</h3>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
+                    1. The three buttons are used to change the temperature. The top and bottom buttons raise and lower the temperature respectively. The middle button is required in order to 'set' any temperature changes.
+                </h3>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
+                    2. The thermostat comes with LED lights on the bottom that indicate your spending on heating/cooling. A green light means better than average: anything below $1900/year. A yellow light means average: $1900-$2500. A red light means you're spending more than average: above $2500.
+                </h3>
+                <h3 style="font-size: 14px; font-weight: bold; margin-top: 12px;">* Tap anywhere to continue.</h3>
             </div>
         </div>
 
         <div class="page" style="position: fixed" id="opening-code">
             <div class="container" style="padding: 0px 40px">
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px;">Thermostat Code</h1>
-                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A0T4X2), allowing your phone to connect to the thermostat.</h3>
+                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A1G8X3), allowing your phone to connect to the thermostat.</h3>
+                <h3 style="font-size: 16px; font-weight: 100;">Your code can be found on the side of your thermostat.</h3>
                 <form id="opening-code-form" style="margin-top: 25px">
                     <input class="code-input" id="opening-new-code" type="text" placeholder="">
                     <h3 class="change-code-info" style="color: #5cb85c" id="opening-change-code-success">Code was successfully changed!</h3>
@@ -45,7 +48,7 @@
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">House Information</h1>
                 <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px">Clarity uses innovative cost transparency to help you save money.</h3>
                 <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px">Please enter the total for your most recent monthly heating/cooling bills.</h3>
-                <form id="costs-form" style="margin-top: 15px; margin-bottom: 15px">
+                <form id="costs-form" style="margin-top: 15px; margin-bottom: 10px">
                     <table style="width: 100%" id="opening-costs-table-1">
                         <tr>
                             <td style="font-size: 14px; font-weight: 100; width: 60%; text-align: left; padding-left: 8px;">
@@ -164,7 +167,7 @@
                         <td><div id="new-cost-button">+ Add New Monthly Cost</div></td>
                     </table>
                 </form>
-                <a id="opening-costs-entered">Move On</a>
+                <a id="opening-costs-entered">Continue</a>
             </div>
         </div>
 
@@ -337,7 +340,7 @@
         <!-- comparisons regional page -->
         <div class="page" id="comp-reg">
             <div class="container" style="padding: 0px 40px">
-                <p style="font-size: 28px; font-weight: 100; margin-top: 40px">Compare to Your Regional Average</p>
+                <p style="font-size: 28px; font-weight: 100; margin-top: 20px">Compare to Your Regional Average</p>
                 <img src="img/regional.png" width="175px" height="175px" />
                 <p style="font-size: 18px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">Kitchener-Waterloo</p>
             </div>
@@ -399,7 +402,7 @@
         <div class="page" id="charts-cost">
             <div class="graph-container">
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px; margin-bottom: 5px;">Heating Costs</h1>
-                <canvas class="graph" height="390" id="cost-chart"></canvas>
+                <canvas class="graph" height="410" id="cost-chart"></canvas>
             </div>
 
             <div class="circle-nav">
@@ -418,7 +421,7 @@
         <div class="page" id="charts-energy">
             <div class="graph-container">
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px; margin-bottom: 5px;">Energy Usage</h1>
-                <canvas class="graph" height="390" id="energy-chart"></canvas>
+                <canvas class="graph" height="410" id="energy-chart"></canvas>
             </div>
 
             <div class="circle-nav">
@@ -437,7 +440,7 @@
         <div class="page" id="charts-temp">
             <div class="graph-container">
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px; margin-bottom: 5px;">Indoor Temperature</h1>
-                <canvas class="graph" height="390" id="temp-chart"></canvas>
+                <canvas class="graph" height="410" id="temp-chart"></canvas>
             </div>
 
             <div class="circle-nav">
@@ -510,7 +513,8 @@
             </div>
             <div class="container" style="padding: 0px 40px">
                 <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px;">Thermostat Code</h1>
-                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A0T4X2), allowing your phone to connect to the thermostat.</h3>
+                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A1G8X3), allowing your phone to connect to the thermostat.</h3>
+                <h3 style="font-size: 16px; font-weight: 100;">Your code can be found on the side of your thermostat.</h3>
                 <form id="code-form" style="margin-top: 25px">
                     <input class="code-input" id="new-code" type="text" placeholder="">
                     <h3 class="change-code-info" style="color: #5cb85c" id="change-code-success">Code was successfully changed!</h3>
@@ -763,7 +767,7 @@
                 <h1 class="customer-support-link">clarity.com</h1>
                 <h3 class="customer-support-media">Phone:</h3>
                 <h1 class="customer-support-link" style="margin-bottom: 0px">416-322-3759</h1>
-                <p style="font-size: 14px; font-weight: 100; margin: 10px 30px;">* These are all 'filler' addresses. They will eventually be functional, but are not right now. Please don't contact.</p>
+                <p style="font-size: 14px; font-weight: 100; margin: 10px 30px;">* These are all 'filler' addresses. They will eventually be functional, but are not right now. Please don't contact them.</p>
             </div>
         </div>
 

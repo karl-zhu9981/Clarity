@@ -10,7 +10,24 @@
     </head>
     <body>
         <!-- this is the page explaining the product -->
-        <div class="page" style="position: fixed" id="opening-info">
+        <div class="page" style="position: fixed" id="opening-info-app">
+            <div class="container" style="padding: 20px 30px">
+                <h1 style="font-size: 24px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">Prototype: App</h1>
+                <h3 style="font-size: 14px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">* This page will only exist in the app prototype, not the finished product.</h3>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px;">
+                    Clarity submitted this prototype to model the app. However, being only a prototype, not all functions are available. Here is some information about it:
+                </h3>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
+                    1. Real customers and users will only have to enter the beginning information when they first open the app. But, so that you can re-experience it, the information prompt will occur every time the app is opened after being quit.
+                </h3>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
+                    2. This phone was not being used for a reason; it can be quite slow. Please be weary of that.
+                <h3 style="font-size: 14px; font-weight: bold; margin-top: 12px;">* Tap anywhere to continue.</h3>
+            </div>
+        </div>
+
+        <!-- this is the page explaining the product -->
+        <div class="page" style="position: fixed" id="opening-info-thermo">
             <div class="container" style="padding: 20px 30px">
                 <h1 style="font-size: 24px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">Prototype: Thermostat</h1>
                 <h3 style="font-size: 14px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">* This page will only exist in the app prototype, not the finished product.</h3>
@@ -502,6 +519,8 @@
                 <hr class="settings-option">
                 <h3 class="settings-option" id="settings-to-custom">Custom Schedule<i class="fa fa-angle-right settings-arrow"></i></h3>
                 <hr class="settings-option">
+                <h3 class="settings-option" id="settings-to-house">House Information<i class="fa fa-angle-right settings-arrow"></i></h3>
+                <hr class="settings-option">
                 <h3 class="settings-option" id="settings-to-support">Customer Support<i class="fa fa-angle-right settings-arrow"></i></h3>
             </div>
         </div>
@@ -746,6 +765,137 @@
                         <td><div id="custom-new-button">+ Add New Time to Schedule</div></td>
                     </table>
                 </form>
+            </div>
+        </div>
+
+        <div class="page" id="settings-house">
+            <div class="settings-return">
+                <i class="fa fa-angle-left"></i>
+                Settings
+            </div>
+            <div class="container" style="padding: 0px 40px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px; margin-bottom: 0px">House Information</h1>
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">You can edit the total for your most recent monthly heating/cooling bills here.</h3>
+                <form id="costs-form" style="margin-top: 15px; margin-bottom: 0px">
+                    <table style="width: 100%" id="settings-costs-table-1">
+                        <tr>
+                            <td style="font-size: 14px; font-weight: 100; width: 60%; text-align: left; padding-left: 8px;">
+                                Month
+                            </td>
+                            <td style="font-size: 14px; font-weight: 100; width: 40%; text-align: left; padding-left: 8px;">
+                                Cost
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="opening-select-month" id="settings-month-1">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August" selected>August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="house-heating-cost" type="number" id="settings-house-cost-1" placeholder="">
+                            </td>
+                        </tr>
+                    </table>
+                    <h3 style="font-size: 12px; font-weight: 100; margin-top: 0px; margin-bottom: 10px">* Prototype: we recommend $67 for August.</h3>
+                    <table style="width: 110%" id="settings-costs-table-2">
+                        <tr>
+                            <td style="width: 60%">
+                                <select class="opening-select-month" id="settings-month-2">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August" selected>August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </td>
+                            <td style="width: 40%">
+                                <input class="house-heating-cost" type="number" id="settings-house-cost-2" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="settings-cost-delete-2"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 110%" id="settings-costs-table-3">
+                        <tr>
+                            <td style="width: 60%">
+                                <select class="opening-select-month" id="settings-month-3">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August" selected>August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </td>
+                            <td style="width: 40%">
+                                <input class="house-heating-cost" type="number" id="settings-house-cost-3" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="settings-house-cost-delete-3"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 110%" id="settings-costs-table-4">
+                        <tr>
+                            <td style="width: 60%">
+                                <select class="opening-select-month" id="settings-month-4">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August" selected>August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </td>
+                            <td style="width: 40%">
+                                <input class="house-heating-cost" type="number" id="settings-house-cost-4" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="settings-house-cost-delete-4"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%">
+                        <td><div id="settings-new-cost-button">+ Add New Monthly Cost</div></td>
+                    </table>
+                </form>
+                <h3 style="font-size: 12px; font-weight: bold; margin-top: 0px; margin-bottom: 0px">* Prototype only: changes here won't affect heating costs.</h3>
             </div>
         </div>
 

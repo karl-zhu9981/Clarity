@@ -2,43 +2,88 @@ $(document).ready(function(){
     /* opens up the opening page */
     $('.page').hide();
     $('.navbar').hide();
-    $('#opening-info').show();
+    $('#opening-info-app').show();
 
     /*this must all be put in here for the opening page about house info.... */
     var openInputs = [1, 0, 0, 0];
     $('#opening-costs-table-2').hide();
     $('#opening-costs-table-3').hide();
     $('#opening-costs-table-4').hide();
+    $('#settings-costs-table-2').hide();
+    $('#settings-costs-table-3').hide();
+    $('#settings-costs-table-4').hide();
 
     $('#new-cost-button').click(function() {
         if (openInputs[1] == 0) {
             $('#opening-costs-table-2').show();
+            $('#settings-costs-table-2').show();
             openInputs[1] = 1;
         } else if (openInputs[2] == 0) {
             $('#opening-costs-table-3').show();
+            $('#settings-costs-table-3').show();
             openInputs[2] = 1;
         } else if (openInputs[3] == 0) {
             $('#opening-costs-table-4').show();
+            $('#settings-costs-table-4').show();
             openInputs[3] = 1;
         }
         if (openInputs.indexOf(0) == -1) {
             $('#new-cost-button').hide();
+            $('#settings-new-cost-button').hide();
         }
     });
+
+    $('#settings-new-cost-button').click(function() {
+        if (openInputs[1] == 0) {
+            $('#settings-costs-table-2').show();
+            openInputs[1] = 1;
+        } else if (openInputs[2] == 0) {
+            $('#settings-costs-table-3').show();
+            openInputs[2] = 1;
+        } else if (openInputs[3] == 0) {
+            $('#settings-costs-table-4').show();
+            openInputs[3] = 1;
+        }
+        if (openInputs.indexOf(0) == -1) {
+            $('#settings-new-cost-button').hide();
+        }
+    });
+
     $('#house-cost-delete-2').click(function() {
         $('#opening-costs-table-2').hide();
+        $('#settings-costs-table-2').hide();
         openInputs[1] = 0;
         $('#new-cost-button').show();
+        $('#settings-new-cost-button').show();
     });
     $('#house-cost-delete-3').click(function() {
         $('#opening-costs-table-3').hide();
+        $('#settings-costs-table-3').hide();
         openInputs[2] = 0;
         $('#new-cost-button').show();
+        $('#settings-new-cost-button').show();
     });
     $('#house-cost-delete-4').click(function() {
         $('#opening-costs-table-4').hide();
+        $('#settings-costs-table-4').hide();
         openInputs[3] = 0;
         $('#new-cost-button').show();
+        $('#settings-new-cost-button').show();
+    });
+    $('#settings-house-cost-delete-2').click(function() {
+        $('#settings-costs-table-2').hide();
+        openInputs[1] = 0;
+        $('#settings-new-cost-button').show();
+    });
+    $('#settings-house-cost-delete-3').click(function() {
+        $('#settings-costs-table-3').hide();
+        openInputs[2] = 0;
+        $('#settings-new-cost-button').show();
+    });
+    $('#settings-house-cost-delete-4').click(function() {
+        $('#settings-costs-table-4').hide();
+        openInputs[3] = 0;
+        $('#settings-new-cost-button').show();
     });
 
     /* makes it so that typing enter/go has you leave the box */
@@ -62,6 +107,27 @@ $(document).ready(function(){
             $(this).blur();
         }
     });
+    $('#settings-house-cost-1').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#settings-house-cost-2').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#settings-house-cost-3').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#settings-house-cost-4').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+
 
     $('#opening-costs-entered').click(function() {
         /* this is for once they press the move one button */
@@ -82,6 +148,15 @@ $(document).ready(function(){
         if (monthCost4 != "" && openInputs[3] == 1) {
             values.push([$('#opening-month-4').val(), 1*monthCost4]);
         }
+
+        $('#settings-month-1').val($('#opening-month-1').val());
+        $('#settings-month-2').val($('#opening-month-2').val());
+        $('#settings-month-3').val($('#opening-month-3').val());
+        $('#settings-month-4').val($('#opening-month-4').val());
+        document.getElementById('settings-house-cost-1').value = document.getElementById('house-cost-1').value;
+        document.getElementById('settings-house-cost-2').value = document.getElementById('house-cost-2').value;
+        document.getElementById('settings-house-cost-3').value = document.getElementById('house-cost-3').value;
+        document.getElementById('settings-house-cost-4').value = document.getElementById('house-cost-4').value;
 
         var m;
         if (values.length == 0) {
@@ -278,7 +353,13 @@ function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg, m) {
 /* this function applies for changing the tab on the navbar */
 function changeTab (activeTab, activeComp, activeChart) {
     /* allows you to leave opening info page */
-    $('#opening-info').click(function() {
+    $('#opening-info-app').click(function() {
+        changePage('#opening-info-thermo');
+        $('.navbar').hide();
+        $('.change-code-info').hide();
+        $('#opening-change-code-general').show();
+    });
+    $('#opening-info-thermo').click(function() {
         changePage('#opening-code');
         $('.navbar').hide();
         $('.change-code-info').hide();
@@ -349,6 +430,10 @@ function changeTab (activeTab, activeComp, activeChart) {
 
     $('#settings-to-custom').click(function() {
         changePage('#settings-custom');
+    });
+
+    $('#settings-to-house').click(function() {
+        changePage('#settings-house');
     });
 
     $('#settings-to-support').click(function() {

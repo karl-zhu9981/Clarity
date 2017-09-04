@@ -260,3 +260,16 @@ body {
     font-weight: 200;
     text-align: left;
 }
+
+#settings-new-cost-button {
+    width: 100%;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box; /* avoids spill over through some css magic ;) */
+    border: 3px solid #ccc;
+    color: #7c7d84;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 200;
+    text-align: left;
+}

@@ -567,7 +567,182 @@
         </div>
 
         <div class="page" id="settings-custom">
-            Custom Schedule
+            <div class="settings-return">
+                <i class="fa fa-angle-left"></i>
+                Settings
+            </div>
+            <div class="container" style="padding: 0px 40px;">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 10px; margin-bottom: 5px;">Custom Schedule</h1>
+                <p style="font-size: 14px; font-weight: 100; margin-top: 5px;">You can use a custom schedule to turn down the temperature when you don't need it, like when you are sleeping.</p>
+                <p style="font-size: 14px; font-weight: 100; margin-top: 5px;">Clarity lets you create daily custom schedules.</p>
+                <hr class="settings-option">
+                <form id="costs-form" style="margin-top: 15px; margin-bottom: 15px">
+                    <table style="width: 100%" id="settings-custom-1">
+                        <tr>
+                            <td style="font-size: 14px; font-weight: 100; width: 50%; text-align: left; padding-left: 8px;">
+                                Time
+                            </td>
+                            <td style="font-size: 14px; font-weight: 100; width: 50%; text-align: left; padding-left: 8px;">
+                                Temperature
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="opening-select-month" id="custom-time-1">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="12:00 am">12:00 am</option>
+                                    <option value="1:00 am">1:00 am</option>
+                                    <option value="2:00 am">2:00 am</option>
+                                    <option value="3:00 am">3:00 am</option>
+                                    <option value="4:00 am">4:00 am</option>
+                                    <option value="5:00 am">5:00 am</option>
+                                    <option value="6:00 am">6:00 am</option>
+                                    <option value="7:00 am">7:00 am</option>
+                                    <option value="8:00 am">8:00 am</option>
+                                    <option value="9:00 am">9:00 am</option>
+                                    <option value="10:00 am">10:00 am</option>
+                                    <option value="11:00 am">11:00 am</option>
+                                    <option value="12:00 pm">12:00 pm</option>
+                                    <option value="1:00 pm">1:00 pm</option>
+                                    <option value="2:00 pm">2:00 pm</option>
+                                    <option value="3:00 pm">3:00 pm</option>
+                                    <option value="4:00 pm">4:00 pm</option>
+                                    <option value="5:00 pm">5:00 pm</option>
+                                    <option value="6:00 pm">6:00 pm</option>
+                                    <option value="7:00 pm">7:00 pm</option>
+                                    <option value="8:00 pm">8:00 pm</option>
+                                    <option value="9:00 pm">9:00 pm</option>
+                                    <option value="10:00 pm">10:00 pm</option>
+                                    <option value="11:00 pm">11:00 pm</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="house-heating-cost" type="number" id="custom-temp-1" placeholder="">
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 110%" id="settings-custom-2">
+                        <tr>
+                            <td style="width: 50%">
+                                <select class="opening-select-month" id="custom-time-2">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="12:00 am">12:00 am</option>
+                                    <option value="1:00 am">1:00 am</option>
+                                    <option value="2:00 am">2:00 am</option>
+                                    <option value="3:00 am">3:00 am</option>
+                                    <option value="4:00 am">4:00 am</option>
+                                    <option value="5:00 am">5:00 am</option>
+                                    <option value="6:00 am">6:00 am</option>
+                                    <option value="7:00 am">7:00 am</option>
+                                    <option value="8:00 am">8:00 am</option>
+                                    <option value="9:00 am">9:00 am</option>
+                                    <option value="10:00 am">10:00 am</option>
+                                    <option value="11:00 am">11:00 am</option>
+                                    <option value="12:00 pm">12:00 pm</option>
+                                    <option value="1:00 pm">1:00 pm</option>
+                                    <option value="2:00 pm">2:00 pm</option>
+                                    <option value="3:00 pm">3:00 pm</option>
+                                    <option value="4:00 pm">4:00 pm</option>
+                                    <option value="5:00 pm">5:00 pm</option>
+                                    <option value="6:00 pm">6:00 pm</option>
+                                    <option value="7:00 pm">7:00 pm</option>
+                                    <option value="8:00 pm">8:00 pm</option>
+                                    <option value="9:00 pm">9:00 pm</option>
+                                    <option value="10:00 pm">10:00 pm</option>
+                                    <option value="11:00 pm">11:00 pm</option>
+                                </select>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="house-heating-cost" type="number" id="custom-temp-2" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="custom-delete-2"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 110%" id="settings-custom-3">
+                        <tr>
+                            <td style="width: 50%">
+                                <select class="opening-select-month" id="custom-time-3">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="12:00 am">12:00 am</option>
+                                    <option value="1:00 am">1:00 am</option>
+                                    <option value="2:00 am">2:00 am</option>
+                                    <option value="3:00 am">3:00 am</option>
+                                    <option value="4:00 am">4:00 am</option>
+                                    <option value="5:00 am">5:00 am</option>
+                                    <option value="6:00 am">6:00 am</option>
+                                    <option value="7:00 am">7:00 am</option>
+                                    <option value="8:00 am">8:00 am</option>
+                                    <option value="9:00 am">9:00 am</option>
+                                    <option value="10:00 am">10:00 am</option>
+                                    <option value="11:00 am">11:00 am</option>
+                                    <option value="12:00 pm">12:00 pm</option>
+                                    <option value="1:00 pm">1:00 pm</option>
+                                    <option value="2:00 pm">2:00 pm</option>
+                                    <option value="3:00 pm">3:00 pm</option>
+                                    <option value="4:00 pm">4:00 pm</option>
+                                    <option value="5:00 pm">5:00 pm</option>
+                                    <option value="6:00 pm">6:00 pm</option>
+                                    <option value="7:00 pm">7:00 pm</option>
+                                    <option value="8:00 pm">8:00 pm</option>
+                                    <option value="9:00 pm">9:00 pm</option>
+                                    <option value="10:00 pm">10:00 pm</option>
+                                    <option value="11:00 pm">11:00 pm</option>
+                                </select>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="house-heating-cost" type="number" id="custom-temp-3" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="custom-delete-3"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 110%" id="settings-custom-4">
+                        <tr>
+                            <td style="width: 50%">
+                                <select class="opening-select-month" id="custom-time-4">
+                                    <i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+                                    <option value="12:00 am">12:00 am</option>
+                                    <option value="1:00 am">1:00 am</option>
+                                    <option value="2:00 am">2:00 am</option>
+                                    <option value="3:00 am">3:00 am</option>
+                                    <option value="4:00 am">4:00 am</option>
+                                    <option value="5:00 am">5:00 am</option>
+                                    <option value="6:00 am">6:00 am</option>
+                                    <option value="7:00 am">7:00 am</option>
+                                    <option value="8:00 am">8:00 am</option>
+                                    <option value="9:00 am">9:00 am</option>
+                                    <option value="10:00 am">10:00 am</option>
+                                    <option value="11:00 am">11:00 am</option>
+                                    <option value="12:00 pm">12:00 pm</option>
+                                    <option value="1:00 pm">1:00 pm</option>
+                                    <option value="2:00 pm">2:00 pm</option>
+                                    <option value="3:00 pm">3:00 pm</option>
+                                    <option value="4:00 pm">4:00 pm</option>
+                                    <option value="5:00 pm">5:00 pm</option>
+                                    <option value="6:00 pm">6:00 pm</option>
+                                    <option value="7:00 pm">7:00 pm</option>
+                                    <option value="8:00 pm">8:00 pm</option>
+                                    <option value="9:00 pm">9:00 pm</option>
+                                    <option value="10:00 pm">10:00 pm</option>
+                                    <option value="11:00 pm">11:00 pm</option>
+                                </select>
+                            </td>
+                            <td style="width: 50%">
+                                <input class="house-heating-cost" type="number" id="custom-temp-4" placeholder="">
+                            </td>
+                            <td>
+                                <i class="fa fa-minus-circle" style="color: #f30a23; font-size: 24px" id="custom-delete-4"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="width: 100%">
+                        <td><div id="custom-new-button">+ Add New Time to Schedule</div></td>
+                    </table>
+                </form>
+            </div>
         </div>
 
         <div class="page" id="settings-support">

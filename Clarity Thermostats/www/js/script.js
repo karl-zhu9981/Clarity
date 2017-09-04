@@ -126,6 +126,9 @@ $(document).ready(function(){
     var thermoCode = '#A1G8X3';
     showCode(thermoCode);
     changeCode(thermoCode);
+
+    /* this is for the custom schedule in settings */
+    customSchedule();
 });
 
 function calculateM (monthCostArr) {
@@ -499,6 +502,68 @@ function changeCode (thermoCode) {
         if(e.which == 13){
             $(this).blur();
             $("#code-form").submit();
+        }
+    });
+}
+
+/* this function runs the custom schedule apge */
+function customSchedule () {
+    var openInputs = [1, 0, 0, 0];
+    $('#settings-custom-2').hide();
+    $('#settings-custom-3').hide();
+    $('#settings-custom-4').hide();
+
+    $('#custom-new-button').click(function() {
+        if (openInputs[1] == 0) {
+            $('#settings-custom-2').show();
+            openInputs[1] = 1;
+        } else if (openInputs[2] == 0) {
+            $('#settings-custom-3').show();
+            openInputs[2] = 1;
+        } else if (openInputs[3] == 0) {
+            $('#settings-custom-4').show();
+            openInputs[3] = 1;
+        }
+        if (openInputs.indexOf(0) == -1) {
+            $('#custom-new-button').hide();
+        }
+    });
+
+    $('#custom-delete-2').click(function() {
+        $('#settings-custom-2').hide();
+        openInputs[1] = 0;
+        $('#custom-new-button').show();
+    });
+    $('#custom-delete-3').click(function() {
+        $('#settings-custom-3').hide();
+        openInputs[2] = 0;
+        $('#custom-new-button').show();
+    });
+    $('#custom-delete-4').click(function() {
+        $('#settings-custom-4').hide();
+        openInputs[3] = 0;
+        $('#custom-new-button').show();
+    });
+
+    /* makes it so that typing enter/go has you leave the box */
+    $('#custom-temp-1').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#custom-temp-2').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#custom-temp-3').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
+        }
+    });
+    $('#custom-temp-4').keypress(function(e){
+        if(e.which == 13){
+            $(this).blur();
         }
     });
 }

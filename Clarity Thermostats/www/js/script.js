@@ -4,8 +4,6 @@ $(document).ready(function(){
     $('.navbar').hide();
     $('#opening-info').show();
 
-    var m = 0;
-
     /*this must all be put in here for the opening page about house info.... */
     var openInputs = [1, 0, 0, 0];
     $('#opening-costs-table-2').hide();
@@ -62,8 +60,13 @@ $(document).ready(function(){
         if (monthCost4 != "" && openInputs[3] == 1) {
             values.push([$('#opening-month-4').val(), 1*monthCost4]);
         }
-        /*var m = calculateM(values);*/
-        m = calculateM(values);
+
+        var m;
+        if (values.length == 0) {
+            m = 4.704 * (10**-5); /* this is the default */
+        } else {
+            m = calculateM(values);
+        }
         changePage('#main');
 
         var cost = 0;
@@ -250,7 +253,7 @@ function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg, m) {
 /* this function applies for changing the tab on the navbar */
 function changeTab (activeTab, activeComp, activeChart) {
     /* allows you to leave opening info page */
-    $('#leave-opening-info').click(function() {
+    $('#opening-info').click(function() {
         changePage('#opening-costs');
         $('.navbar').hide();
     });

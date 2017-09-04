@@ -12,16 +12,29 @@
         <!-- this is the page explaining the product -->
         <div class="page" style="position: fixed" id="opening-info">
             <div class="container" style="padding: 20px 30px">
-                <h1 style="font-size: 28px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">Clarity: Prototype</h1>
+                <h1 style="font-size: 24px; font-weight: 100; margin-top: 0px; margin-bottom: 0px">Prototype: Thermostat</h1>
                 <h3 style="font-size: 14px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">* This page will only exist in the app prototype, not the finished product.</h3>
-                <h1 style="font-size: 22px; font-weight: 100; margin-top: 20px; margin-bottom: 0px;">The Thermostat</h1>
-                <h3 style="font-size: 16px; font-weight: 100; margin-top: 5px; margin-bottom: 0px; text-align: left">
+                <h3 style="font-size: 16px; font-weight: 100; margin-top: 15px; margin-bottom: 0px; text-align: left">
                     Clarity also submitted a prototype for the physical thermostat. Some information about it:
                     <br><br>
                     1. The three buttons are used to change the temperature. The top and bottoms button raise and lower the temperature respectively. The middle button is required in order to 'set' any temperature change.
                     <br><br>
                     2. The thermostat comes with LED lights on the bottom that indicate your expenditure on heating/cooling. A green light means better than average: anything below $1900/year. A yellow light means average: $1900-$2500. A red light means you're spending more than average: above $2500.
                 </h3>
+            </div>
+        </div>
+
+        <div class="page" style="position: fixed" id="opening-code">
+            <div class="container" style="padding: 0px 40px">
+                <h1 style="font-size: 28px; font-weight: 100; margin-top: 20px;">Thermostat Code</h1>
+                <h3 style="font-size: 16px; font-weight: 100;">Each thermostat comes equipped with a unique verification code (eg. #A0T4X2), allowing your phone to connect to the thermostat.</h3>
+                <form id="opening-code-form" style="margin-top: 25px">
+                    <input class="code-input" id="opening-new-code" type="text" placeholder="">
+                    <h3 class="change-code-info" style="color: #5cb85c" id="opening-change-code-success">Code was successfully changed!</h3>
+                    <h3 class="change-code-info" style="color: #f30a23" id="opening-change-code-hashtag">Code error! Please make sure you start the code with a hashtag.</h3>
+                    <h3 class="change-code-info" style="color: #f30a23" id="opening-change-code-length">Code error! Please make sure the hashtag is followed by 6 digits.</h3>
+                    <h3 class="change-code-info" id="opening-change-code-general">Please ensure that the code begins with a # and is followed by six digits.</h3>
+                </form>
             </div>
         </div>
 
@@ -328,7 +341,7 @@
                 <p style="font-size: 18px; font-weight: 100; margin-top: 5px; margin-bottom: 0px">Kitchener-Waterloo</p>
             </div>
 
-            <table style="width: 100%; text-align: center; padding-top: 20px">
+            <table style="width: 100%; text-align: center; padding: 20px 10px;">
                 <tr>
                     <td style="width:50%; font-size: 20px; font-weight: 100">
                         Your Region

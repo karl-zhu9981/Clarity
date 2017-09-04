@@ -278,8 +278,6 @@ function changeTab (activeTab, activeComp, activeChart) {
     $('#opening-info').click(function() {
         changePage('#opening-code');
         $('.navbar').hide();
-        $('.change-code-info').hide();
-        $('#opening-change-code-general').show();
     });
 
     $('#home-tab').click(function() {
@@ -424,35 +422,12 @@ function changeTab (activeTab, activeComp, activeChart) {
 /* this displays the code in the settings page */
 function showCode (thermoCode) {
     /* this sets the placehodler in input form */
-    document.getElementById("opening-new-code").placeholder = thermoCode;
     document.getElementById("new-code").placeholder = thermoCode;
 }
 
 /* allows you to change the thermostat code connected */
 function changeCode (thermoCode) {
-    /* this deals with the thermostat code form in the OPENING */
-    $("#opening-code-form").submit(function(e) {
-        e.preventDefault();
-        $('.change-code-info').hide();
-        var newCode = document.getElementById('opening-new-code').value; /* this gets whatever is in the input box */
-        newCode = newCode.toUpperCase();
-        if (newCode[0] == "#" && newCode.length == 7) {
-            thermoCode = newCode;
-            showCode(thermoCode);
-            document.getElementById('new-code').value = "";
-            changePage("#opening-costs"); /* move to next page now */
-            $('.navbar').hide();
-        } else {
-            if (newCode[0] != "#") {
-                $('#opening-change-code-hashtag').show();
-            }
-            if (newCode.length != 7) {
-                $('#opening-change-code-length').show();
-            }
-        }
-    });
-
-    /* this deals with the thermostat code form in the SETTINGS */
+    /* this deals with the thermostat code form */
     $("#code-form").submit(function(e) {
         e.preventDefault();
         $('.change-code-info').hide();
@@ -473,14 +448,7 @@ function changeCode (thermoCode) {
         }
     });
 
-    /* makes it so that if you click enter, you leave the form for OPENING */
-    $('#opening-new-code').keypress(function(e){
-        if(e.which == 13){
-            $(this).blur();
-        }
-    });
-
-    /* makes it so that if you click enter, you leave the form for SETTINGS */
+    /* makes it so that if you click enter, you leave the form */
     $('#new-code').keypress(function(e){
         if(e.which == 13){
             $(this).blur();

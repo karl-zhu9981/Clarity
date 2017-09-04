@@ -1,9 +1,31 @@
 /* each of the following functions is used to get required information */
 
-function getm () {
+/* calculates m based on a monthly cost */
+function getM_month (month, cost_month) {
     /* m value was calculated by assuming a house that pays $2500 on electrical heating with temperatures below
     warning, m will vary SIGNIFICANTLY if you switch from electical to gas or oil */
-    return (4.704 * (10**-5))
+    /*return (4.704 * (10**-5))*/
+    var month_index = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].indexOf(month);
+
+    var rate = getPriceRate();
+    var outT = [-7, -7, -2, 6, 12, 17, 20, 19, 14, 8, 2, -4]; /* temperatures for KW; averages per month */
+    var fluc = 5.0; /* this is the fluctutations outside thorughout different days in the month */
+    var diffOut = 7.0; /* average temperature difference between day and night (outside) ; therefore day temp is half of this above avg, night temp is half of this below avg */
+    var inT = 23;
+
+    var tempDiffSum = 0;
+    var tempDiff;
+    for (var j=0; j<3; j++) {
+        for (var a=0; a<2; a++) {
+            tempDiff = inT - outT[month_index] + (j-1)*fluc + (a-0.5)*diffOut;
+            if (tempDiff < 0) {
+                tempDiff *= -1;
+            }
+            tempDiffSum += tempDiff / 6.0;
+        }
+    }
+    var m = cost_month / (rate * tempDiffSum * 3600 * 24 * 30.4);
+    return m
 }
 
 function getPriceRate () {
@@ -17,14 +39,13 @@ function getPriceRate () {
     return 0.85 */
 }
 
-function costPerYear (inT) {
+function costPerYear (inT, m) {
     /* these are the needed preliminary variables */
-    var m = getm();
     var rate = getPriceRate();
-    var outT = [-7, -7, -2, 6, 12, 17, 20, 19, 14, 8, 2, -4] /* temperatures for KW; averages per month */
+    var outT = [-7, -7, -2, 6, 12, 17, 20, 19, 14, 8, 2, -4]; /* temperatures for KW; averages per month */
 
-    var fluc = 5.0 /* this is the fluctutations outside thorughout different days in the month */
-    var diffOut = 7.0 /* average temperature difference between day and night (outside) ; therefore day temp is half of this above avg, night temp is half of this below avg */
+    var fluc = 5.0; /* this is the fluctutations outside thorughout different days in the month */
+    var diffOut = 7.0; /* average temperature difference between day and night (outside) ; therefore day temp is half of this above avg, night temp is half of this below avg */
 
 
     tempDiffSum = 0 /* this sums the total temperature differences throughout the year */

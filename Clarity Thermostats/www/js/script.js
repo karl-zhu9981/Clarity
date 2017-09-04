@@ -2,26 +2,87 @@ $(document).ready(function(){
     /* opens up the opening page */
     $('.page').hide();
     $('.navbar').hide();
-    $('#opening').show();
-    /*changePage('#main');*/
-    changePageDelay(0);
+    $('#opening-info').show();
 
+    var m = 0;
+
+    /*this must all be put in here for the opening page about house info.... */
+    var openInputs = [1, 0, 0, 0];
+    $('#opening-costs-table-2').hide();
+    $('#opening-costs-table-3').hide();
+    $('#opening-costs-table-4').hide();
+
+    $('#new-cost-button').click(function() {
+        if (openInputs[1] == 0) {
+            $('#opening-costs-table-2').show();
+            openInputs[1] = 1;
+        } else if (openInputs[2] == 0) {
+            $('#opening-costs-table-3').show();
+            openInputs[2] = 1;
+        } else if (openInputs[3] == 0) {
+            $('#opening-costs-table-4').show();
+            openInputs[3] = 1;
+        }
+        if (openInputs.indexOf(0) == -1) {
+            $('#new-cost-button').hide();
+        }
+    });
+    $('#house-cost-delete-2').click(function() {
+        $('#opening-costs-table-2').hide();
+        openInputs[1] = 0;
+        $('#new-cost-button').show();
+    });
+    $('#house-cost-delete-3').click(function() {
+        $('#opening-costs-table-3').hide();
+        openInputs[2] = 0;
+        $('#new-cost-button').show();
+    });
+    $('#house-cost-delete-4').click(function() {
+        $('#opening-costs-table-4').hide();
+        openInputs[3] = 0;
+        $('#new-cost-button').show();
+    });
+
+    $('#opening-costs-entered').click(function() {
+        /* this is for once they press the move one button */
+        var values = [];
+        var monthCost1 = document.getElementById('house-cost-1').value;
+        if (monthCost1 != "") {
+            values.push([$('#opening-month-1').val(), 1*monthCost1]);
+        }
+        var monthCost2 = document.getElementById('house-cost-2').value;
+        if (monthCost2 != "" && openInputs[1] == 1) {
+            values.push([$('#opening-month-2').val(), 1*monthCost2]);
+        }
+        var monthCost3 = document.getElementById('house-cost-3').value;
+        if (monthCost3 != "" && openInputs[2] == 1) {
+            values.push([$('#opening-month-3').val(), 1*monthCost3]);
+        }
+        var monthCost4 = document.getElementById('house-cost-4').value;
+        if (monthCost4 != "" && openInputs[3] == 1) {
+            values.push([$('#opening-month-4').val(), 1*monthCost4]);
+        }
+        /*var m = calculateM(values);*/
+        m = calculateM(values);
+        changePage('#main');
+
+        var cost = 0;
+        var saveMoneyVal = 0; /* saveMoneyVal applies for when you decrease temp by 2 degrees */
+        /* this lets you deal with the compare to yourself page */
+        var costAt23 = costPerYear(23, m);
+        $('#compare-self-avg').text(costAt23);
+        /* this is for the regional comparison prices */
+        var regAvg = 2100;
+        $('#cost-reg-avg').text(regAvg);
+
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
+        changeTemp(temp, cost, saveMoneyVal, costAt23, regAvg, m);
+    });
+    /* deals with the opening page – enter house information */
     var temp = 23;
     $('#main-temp').text(temp);
     $('#main-temp-confirm').text(temp);
     setTemp_savePage(temp);
-
-    var cost = 0;
-    var saveMoneyVal = 0; /* saveMoneyVal applies for when you decrease temp by 2 degrees */
-    /* this lets you deal with the compare to yourself page */
-    var costAt23 = costPerYear(23);
-    $('#compare-self-avg').text(costAt23);
-    /* this is for the regional comparison prices */
-    var regAvg = 2100;
-    $('#cost-reg-avg').text(regAvg);
-
-    changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
-    changeTemp(temp, cost, saveMoneyVal, costAt23, regAvg);
 
     /* allows you to change the charts */
     var activeChart = '.to-cost';
@@ -42,6 +103,14 @@ $(document).ready(function(){
     changeCode(thermoCode);
 });
 
+function calculateM (monthCostArr) {
+    var mAvg = 0;
+    for (var i=0; i<monthCostArr.length; i++) {
+        mAvg = (mAvg * i + getM_month(monthCostArr[i][0], monthCostArr[i][1])) / (i+1)
+    }
+    return mAvg;
+}
+
 /* changes the active page */
 function changePage (newID) {
     $('.page').hide();
@@ -49,15 +118,8 @@ function changePage (newID) {
     $('.navbar').show();
 }
 
-/* will delay changing the page for a set time */
-function changePageDelay (miliseconds) {
-    setTimeout(function() {
-        changePage('#main');
-    }, miliseconds);
-};
-
 /* this function works for changing the temperature */
-function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
+function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg, m) {
     var oldTemp; var confirmCostDiff; /* these are for the confirmation page when you increase temp */
 
     /* allows you to decrease temperature */
@@ -65,7 +127,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
         temp --;
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
     });
 
@@ -73,10 +135,10 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
     $('#temp-up-button').click(function() {
         oldTemp = temp; /* for the increasing temp confirmation page */
         temp ++;
-        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
+        confirmCostDiff = costPerYear(temp, m) - costPerYear(oldTemp, m);
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
         /* deals with the the confirmation page */
         changePage('#main-confirm');
@@ -92,10 +154,10 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
         if (temp <= oldTemp) {
             changePage('#main');
         };
-        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
+        confirmCostDiff = costPerYear(temp, m) - costPerYear(oldTemp, m);
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
         /* deals with the the confirmation page */
         $('#confirm-new-temp').text(temp);
@@ -105,10 +167,10 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
     /* allows you to increase temperature of house on confirm page */
     $('#temp-up-button-confirm').click(function() {
         temp ++;
-        confirmCostDiff = costPerYear(temp) - costPerYear(oldTemp);
+        confirmCostDiff = costPerYear(temp, m) - costPerYear(oldTemp, m);
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
         /* deals with the the confirmation page */
         $('#confirm-new-temp').text(temp);
@@ -123,7 +185,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
         temp = oldTemp;
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
         changePage('#main');
     });
@@ -134,7 +196,7 @@ function changeTemp (temp, cost, saveMoneyVal, costAt23, regAvg) {
         temp -= 2;
         $('#main-temp').text(temp);
         $('#main-temp-confirm').text(temp);
-        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg);
+        changeCost(temp, cost, saveMoneyVal, costAt23, regAvg, m);
         setTemp_savePage(temp);
     });
 
@@ -150,11 +212,11 @@ function setTemp_savePage (temp) {
 }
 
 /* this functions updates the cost to heat hosue per year */
-function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg) {
-    cost = costPerYear(temp);
+function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg, m) {
+    cost = costPerYear(temp, m);
     $('#main-cost').text(cost);
     /* this deals with money saved from dropping temp 2 degrees */
-    saveMoneyVal = cost - costPerYear(temp-2);
+    saveMoneyVal = cost - costPerYear(temp-2, m);
     $('#save-down-2').text(saveMoneyVal);
     $('#save-year').text(saveMoneyVal);
     $('#save-month').text((saveMoneyVal/12).toFixed(2));
@@ -187,6 +249,12 @@ function changeCost (temp, cost, saveMoneyVal, costAt23, regAvg) {
 
 /* this function applies for changing the tab on the navbar */
 function changeTab (activeTab, activeComp, activeChart) {
+    /* allows you to leave opening info page */
+    $('#leave-opening-info').click(function() {
+        changePage('#opening-costs');
+        $('.navbar').hide();
+    });
+
     $('#home-tab').click(function() {
         $(activeTab).removeClass('nav-item-active');
         activeTab = '#home-tab';
